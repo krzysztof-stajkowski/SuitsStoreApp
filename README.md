@@ -1,9 +1,7 @@
 # SuitsStoreApp
 Final boot camp project
 
-
-PRODUKTY
-
+SUITS
 tu znajdują się wszystkie ubrania
 GARNITURY (Suits)
 
