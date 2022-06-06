@@ -33,7 +33,7 @@
     <form:input path="pComposition"/> <br/>
     <form:errors path="pComposition"/><br/>
     category
-    <form:select itemValue="id" itemLabel="name"
+    <form:select itemLabel="name" itemValue="id"
                  path="category.id" items="${categoryList}"/>
 
 <%--    <form:select path="category">--%>

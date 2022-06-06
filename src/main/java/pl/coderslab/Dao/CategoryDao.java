@@ -15,8 +15,8 @@ public class CategoryDao {
     @PersistenceContext
     private EntityManager entityManager; //EntityManager – zarządca encji, udostępnia nam możliwość operowania na naszych encjach.
 
-    public List getList() {
-        return entityManager.createQuery("select b.name from Category b").getResultList();
+    public List<Category> getList() {
+        return entityManager.createQuery("select b from Category b").getResultList(); //tu musi być samo b inaczej będzie błąd
     }
 
     public Category findById(long id) {
