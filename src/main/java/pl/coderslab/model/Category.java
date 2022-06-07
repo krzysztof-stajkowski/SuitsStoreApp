@@ -18,6 +18,17 @@ public class Category {
     @OneToMany(mappedBy = "category") //nie tworzymy kolejnej tabeli mapującej
     private List<Product> products  = new ArrayList<>(); //gdy chcę po kategorii pobrać listę produktów
 
+    public List<Suits> getSuits() {
+        return suits;
+    }
+
+    public void setSuits(List<Suits> suits) {
+        this.suits = suits;
+    }
+
+    @OneToMany(mappedBy = "category") //nie tworzymy kolejnej tabeli mapującej
+    private List<Suits> suits  = new ArrayList<>();
+
     //Konstruktora w encji - NIE MA - potrzebny jest bezargumentowy który i tak jest Default i nie trzeba go tworzyć
 
     public long getId() {

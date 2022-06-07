@@ -1,6 +1,7 @@
 package pl.coderslab.Dao;
 
 import org.springframework.stereotype.Repository;
+import pl.coderslab.model.Category;
 import pl.coderslab.model.Suits;
 
 import javax.persistence.EntityManager;
@@ -18,6 +19,7 @@ public class SuitsDao {
 
 
 public void save(Suits suits) {
+
     entityManager.persist(suits);
 }
 

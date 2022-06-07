@@ -7,5 +7,7 @@
 </head>
 <body>
 <h1>Tu będzie strona startowa w której bedą klikalne obrazki które bedą przenosić do products i Suits oraz statystyk Sold, i zamówień footer, header, </h1>
+<p>Dodawanie garnituru do bazy</p>
+<a href="suits/add">Click here to add a suit.</a>
 </body>
 </html>

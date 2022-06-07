@@ -48,6 +48,11 @@ public class SuitsController {
         suits.setpName("Garnitur"); //ustawiam na twardo nazwę a reszta jest z formularza
         suits.setpAvailable(1); // 1 - dostępny na sprzedarz - na starcie jest 1. na zero można zmnienić w oddzielnej akcji
 
+        //Wyciągam za pomocą funkcji entityManager id wybrany z formularza i pobieram za jego pomocą Name z tabeli category
+        //i dopisuję do obiektu suits brakujący element
+        Category catName = categoryDao.findById(suits.getCategoryId());
+        suits.setpCategory(catName.getName());
+
         suitsDao.save(suits);
         return "suits"; //strona bazowa Suits z wyborem Crud
     }

@@ -6,6 +6,7 @@
 <head>
     <title>SUITS PAGE</title>
 </head>
+<h3>Add suit to database</h3>
 <body>
 <form:form method="post" modelAttribute="suits"> <%--Klucz z kontrolera CZERWONY ALE JEST OK to inteliJ tak pokazuje--%>
     Suit
@@ -35,11 +36,6 @@
     category
     <form:select itemLabel="name" itemValue="id"
                  path="category.id" items="${categoryList}"/>
-
-<%--    <form:select path="category">--%>
-<%--        <form:option value="-" label="--Please Select--"/>--%>
-<%--        <form:options items="${categoryList}" multiple="false"/>--%>
-<%--    </form:select>--%>
 
     <br/><br/>
     <input type="submit" value="Save"> <br/>

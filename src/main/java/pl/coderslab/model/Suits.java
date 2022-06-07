@@ -39,6 +39,8 @@ public class Suits {
     @Size(max = 25)
     private String pComposition;
 
+    private String pCategory;
+
     public String getpCategory() {
         return pCategory;
     }
@@ -46,8 +48,6 @@ public class Suits {
     public void setpCategory(String pCategory) {
         this.pCategory = pCategory;
     }
-
-    private String pCategory;
 
     @NotNull
     @Min(0)
@@ -131,6 +131,10 @@ public class Suits {
 
     public Category getCategory() {
         return category;
+    }
+
+    public long getCategoryId() {
+        return category.getId();
     }
 
     public void setCategory(Category category) {
