@@ -54,7 +54,7 @@ public class SuitsController {
         suits.setpCategory(catName.getName());
 
         suitsDao.save(suits);
-        return "suits"; //strona bazowa Suits z wyborem Crud
+        return "suitCrudSuccess"; //strona bazowa Suits z wyborem Crud
     }
 
     @RequestMapping("/edit")

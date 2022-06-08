@@ -6,8 +6,13 @@
     <title>Strona startowa</title>
 </head>
 <body>
-<h1>Tu będzie strona startowa w której bedą klikalne obrazki które bedą przenosić do products i Suits oraz statystyk Sold, i zamówień footer, header, </h1>
-<p>Dodawanie garnituru do bazy</p>
-<a href="suits/add">Click here to add a suit.</a>
+<h1>Tu będzie strona startowa w której bedą klikalne obrazki które bedą przenosić do products i Suits </h1>
+<h2>Dodawanie towarów do bazy</h2>
+    <p>MANAGE SUITS</p>
+<a href="suits">GO-></a> <br><br>
+    <p>MANAGE PRODUCTS</p>
+<a href="products">GO-></a><br><br>
+    <p>SUIT MAKER</p>
+<a href="match">GO-></a>
 </body>
 </html>

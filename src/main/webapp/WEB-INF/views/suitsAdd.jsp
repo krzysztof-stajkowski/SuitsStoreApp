@@ -18,9 +18,6 @@
     model
     <form:input path="pModel"/> <br/>
     <form:errors path="pModel"/><br/>
-    price
-    <form:input path="pPrice"/><br/>
-    <form:errors path="pPrice"/><br/>
     size
     <form:input path="pSize"/> <br/>
     <form:errors path="pSize"/><br/>

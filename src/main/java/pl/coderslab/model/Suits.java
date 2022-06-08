@@ -5,7 +5,6 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.math.BigDecimal;
 
 @Entity
 public class Suits {
@@ -21,9 +20,6 @@ public class Suits {
     @Size(min = 8)
     @Size(max = 8)  // 25SS22BC -> 25 spring/summer 2022 Black
     private String pModel;
-
-    @NotNull
-    private BigDecimal pPrice;
 
     @NotNull
     private String pSize; // litery lub liczby
@@ -89,14 +85,6 @@ public class Suits {
         this.pModel = pModel;
     }
 
-    public BigDecimal getpPrice() {
-        return pPrice;
-    }
-
-    public void setpPrice(BigDecimal pPrice) {
-        this.pPrice = pPrice;
-    }
-
     public String getpSize() {
         return pSize;
     }
@@ -147,7 +135,6 @@ public class Suits {
                 "id=" + id +
                 ", pName='" + pName + '\'' +
                 ", pModel='" + pModel + '\'' +
-                ", pPrice=" + pPrice +
                 ", pSize='" + pSize + '\'' +
                 ", pColor='" + pColor + '\'' +
                 ", pDescription='" + pDescription + '\'' +

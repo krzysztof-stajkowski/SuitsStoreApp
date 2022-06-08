@@ -2,7 +2,6 @@ package pl.coderslab.Dao;
 
 import org.springframework.stereotype.Repository;
 import pl.coderslab.model.Category;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
