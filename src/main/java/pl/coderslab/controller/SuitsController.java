@@ -46,7 +46,7 @@ public class SuitsController {
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String saveSuits(Suits suits) { //trzeba zaimportować klasę Model
         suits.setpName("Garnitur"); //ustawiam na twardo nazwę a reszta jest z formularza
-        suits.setpAvailable(1); // 1 - dostępny na sprzedarz - na starcie jest 1. na zero można zmnienić w oddzielnej akcji
+        suits.setpAvailable(1); // 1 - dostępny na sprzedarz / na starcie jest 1. na zero można zmnienić w oddzielnej akcji
 
         //Wyciągam za pomocą funkcji entityManager id wybrany z formularza i pobieram za jego pomocą Name z tabeli category
         //i dopisuję do obiektu suits brakujący element
@@ -57,17 +57,29 @@ public class SuitsController {
         return "suitCrudSuccess"; //strona bazowa Suits z wyborem Crud
     }
 
-    @RequestMapping("/edit")
-    public String editSuits() {
-        Suits suits = suitsDao.findById(2l);
-        suits.setpColor("Yellow");
-        suitsDao.update(suits);
-        return "edited";
+    @GetMapping
+    @RequestMapping(value = "/edit")
+    public String editSuits(Model model) { //trzeba zaimportować klasę Model
+        model.addAttribute("suits", new Suits()); // klucz do jsp
+        return "suitsEdit"; //link do jsp
     }
 
-    /** Tu ma być:
-     * Sprzedaż pomniejszająca stan magazynowy i obliczająca ceny w tabeli SOLD
-     */
+    @RequestMapping(value = "/edit", method = RequestMethod.POST)
+    public String editSuits(Suits suits) {
+
+        Suits oldSuit = suitsDao.findById(suits.getId());
+        oldSuit.setpAvailable(oldSuit.getpAvailable());
+        oldSuit.setpModel(suits.getpModel());
+        oldSuit.setpSize(suits.getpSize());
+        oldSuit.setpColor(suits.getpColor());
+        oldSuit.setpDescription(suits.getpDescription());
+
+       Category catNameEdit = categoryDao.findById(suits.getCategoryId());
+       oldSuit.setpCategory(catNameEdit.getName());
+
+        suitsDao.update(oldSuit);
+        return "suitCrudSuccess";
+    }
 
     @RequestMapping("/delete")
     public String deleteSuits() {
