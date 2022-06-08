@@ -9,7 +9,7 @@
 <h3>Edit suit in database</h3>
 <body>
 <form:form method="post" modelAttribute="suits"> <%--Klucz z kontrolera CZERWONY ALE JEST OK to inteliJ tak pokazuje--%>
-    Suit
+    Suit id
     <form:input path="id"/> <br/>
 
     model

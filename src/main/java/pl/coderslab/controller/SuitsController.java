@@ -2,10 +2,7 @@ package pl.coderslab.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import pl.coderslab.Dao.CategoryDao;
 import pl.coderslab.Dao.SuitsDao;
 import pl.coderslab.model.Category;
@@ -72,6 +69,7 @@ public class SuitsController {
         oldSuit.setpModel(suits.getpModel());
         oldSuit.setpSize(suits.getpSize());
         oldSuit.setpColor(suits.getpColor());
+        oldSuit.setpComposition(suits.getpComposition());
         oldSuit.setpDescription(suits.getpDescription());
 
        Category catNameEdit = categoryDao.findById(suits.getCategoryId());
@@ -81,21 +79,25 @@ public class SuitsController {
         return "suitCrudSuccess";
     }
 
-    @RequestMapping("/delete")
-    public String deleteSuits() {
-        Suits suits = suitsDao.findById(1l);
-        suitsDao.delete(suits);
-        return "deleted";
+    @GetMapping("/delete")
+    public String delete(Model model) {
+        model.addAttribute("suits", suitsDao.getList());
+        return "suitsDel";
     }
 
-    //to musi być GET
-    @RequestMapping("/list")
-    public String getSuitsList() {
-        List<Suits> list = suitsDao.getList();
-        return list.stream()
-                .map(b -> b.getpName())
-                .peek(s -> System.out.println(s))
-                .collect(Collectors.joining(" ---- "));
+    @GetMapping("/delete/{id}")  //na podstawie book z zajęć warjee29sh
+    public String delete(@PathVariable long id ) {
+      Suits suitsDelId =  suitsDao.findById(id);
+        suitsDao.delete(suitsDelId);
+        return "suitCrudSuccess";
+    }
+
+
+
+    @GetMapping("/list")
+    public String list(Model model) {
+        model.addAttribute("suits", suitsDao.getList());
+        return "suitsList";
     }
 
     //-----------------
