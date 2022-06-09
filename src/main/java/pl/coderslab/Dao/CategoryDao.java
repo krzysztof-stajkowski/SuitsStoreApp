@@ -21,4 +21,9 @@ public class CategoryDao {
     public Category findById(long id) {
         return entityManager.find(Category.class, id);
     }
+
+
+    public void update(Category category) {
+        entityManager.merge(category);
+    }
 }

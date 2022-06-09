@@ -9,8 +9,7 @@ import pl.coderslab.model.Category;
 import pl.coderslab.model.Suits;
 
 import java.util.Collection;
-import java.util.List;
-import java.util.stream.Collectors;
+
 
 
 @Controller
@@ -44,12 +43,6 @@ public class SuitsController {
     public String saveSuits(Suits suits) { //trzeba zaimportować klasę Model
         suits.setpName("Garnitur"); //ustawiam na twardo nazwę a reszta jest z formularza
         suits.setpAvailable(1); // 1 - dostępny na sprzedarz / na starcie jest 1. na zero można zmnienić w oddzielnej akcji
-
-        //Wyciągam za pomocą funkcji entityManager id wybrany z formularza i pobieram za jego pomocą Name z tabeli category
-        //i dopisuję do obiektu suits brakujący element
-        Category catName = categoryDao.findById(suits.getCategoryId());
-        suits.setpCategory(catName.getName());
-
         suitsDao.save(suits);
         return "suitCrudSuccess"; //strona bazowa Suits z wyborem Crud
     }
@@ -72,13 +65,22 @@ public class SuitsController {
         oldSuit.setpComposition(suits.getpComposition());
         oldSuit.setpDescription(suits.getpDescription());
 
-       Category catNameEdit = categoryDao.findById(suits.getCategoryId());
-       oldSuit.setpCategory(catNameEdit.getName());
+        Category catNameEdit = categoryDao.findById(suits.getCategoryId());
+
+        System.out.println("Nowy wpis id " + catNameEdit.getId());
+        System.out.println("Stary wpis id " +oldSuit.getCategory().getId());
+
+        System.out.println("Nowy wpis name " + catNameEdit.getName());
+        System.out.println("Stary wpis name " +oldSuit.getCategory().getName());
+
+        //Testy poniższe linie zwracają błędy
+//        oldSuit.getCategory().setId(catNameEdit.getId());
+//        oldSuit.getCategory().setName(catNameEdit.getName());
 
         suitsDao.update(oldSuit);
         return "suitCrudSuccess";
     }
-
+    //-----------------------------
     @GetMapping("/delete")
     public String delete(Model model) {
         model.addAttribute("suits", suitsDao.getList());
@@ -86,13 +88,11 @@ public class SuitsController {
     }
 
     @GetMapping("/delete/{id}")  //na podstawie book z zajęć warjee29sh
-    public String delete(@PathVariable long id ) {
-      Suits suitsDelId =  suitsDao.findById(id);
+    public String delete(@PathVariable long id) {
+        Suits suitsDelId = suitsDao.findById(id);
         suitsDao.delete(suitsDelId);
         return "suitCrudSuccess";
     }
-
-
 
     @GetMapping("/list")
     public String list(Model model) {

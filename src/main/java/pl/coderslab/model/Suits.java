@@ -36,16 +36,6 @@ public class Suits {
     @Size(max = 25)
     private String pComposition;
 
-    private String pCategory;
-
-    public String getpCategory() {
-        return pCategory;
-    }
-
-    public void setpCategory(String pCategory) {
-        this.pCategory = pCategory;
-    }
-
     @NotNull
     @Min(0)
     @Max(1)

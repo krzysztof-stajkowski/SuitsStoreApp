@@ -17,6 +17,7 @@
         <th>Name</th>
         <th>Model</th>
         <th>Size</th>
+        <th>Category</th>
         <th>Color</th>
         <th>Description</th>
         <th>Composition</th>
@@ -30,7 +31,8 @@
             <td>${suit.id}</td>
             <td>${suit.pName}</td>
             <td>${suit.pModel}</td>
-            <td>${suit.pCategory}</td>
+            <td>${suit.pSize}</td>
+            <td>${suit.category.name}</td> <%-- odwołanie do innej tabeli po relacji--%>
             <td>${suit.pColor}</td>
             <td>${suit.pDescription}</td>
             <td>${suit.pComposition}</td>

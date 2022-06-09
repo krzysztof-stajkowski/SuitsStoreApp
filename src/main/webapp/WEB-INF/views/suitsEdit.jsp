@@ -8,6 +8,8 @@
 </head>
 <h3>Edit suit in database</h3>
 <body>
+<h2>Select id and edit positions</h2>
+
 <form:form method="post" modelAttribute="suits"> <%--Klucz z kontrolera CZERWONY ALE JEST OK to inteliJ tak pokazuje--%>
     Suit id
     <form:input path="id"/> <br/>

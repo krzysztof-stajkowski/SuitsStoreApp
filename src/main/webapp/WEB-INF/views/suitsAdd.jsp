@@ -32,7 +32,7 @@
     <form:errors path="pComposition"/><br/>
     category
     <form:select itemLabel="name" itemValue="id"
-                 path="category.id" items="${categoryList}"/>
+                 path="category.id" items="${categoryList}"/>  <%-- odwołanie do innej tabeli po relacji--%>
 
     <br/><br/>
     <input type="submit" value="Save"> <br/>

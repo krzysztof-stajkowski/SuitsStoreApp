@@ -7,7 +7,7 @@
 <head>
     <title>SUITS PAGE</title>
 </head>
-<h3>Edit suits from database</h3>
+<h3>Delete suits from database</h3>
 <body>
 
 <table>
@@ -17,6 +17,7 @@
         <th>Name</th>
         <th>Model</th>
         <th>Size</th>
+        <th>Category</th>
         <th>Color</th>
         <th>Description</th>
         <th>Composition</th>
@@ -30,21 +31,21 @@
             <td>${suit.id}</td>
             <td>${suit.pName}</td>
             <td>${suit.pModel}</td>
-            <td>${suit.pCategory}</td>
+            <td>${suit.pSize}</td>
+            <td>${suit.category.name}</td>   <%-- odwołanie do innej tabeli po relacji--%>
             <td>${suit.pColor}</td>
             <td>${suit.pDescription}</td>
             <td>${suit.pComposition}</td>
             <td>${suit.pAvailable}</td>
 
             <td>
-             <a href="<c:url value="edit/${suit.id}"/>"> <-Edit</a>
+                <a href="<c:url value="edit/${suit.id}"/>">Edit suit input in database</a>
             </td>
         </tr>
     </c:forEach>
     </tbody>
 </table>
 
-
-
 </body>
 </html>
+
