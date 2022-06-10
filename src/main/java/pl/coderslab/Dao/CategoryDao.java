@@ -22,7 +22,6 @@ public class CategoryDao {
         return entityManager.find(Category.class, id);
     }
 
-
     public void update(Category category) {
         entityManager.merge(category);
     }

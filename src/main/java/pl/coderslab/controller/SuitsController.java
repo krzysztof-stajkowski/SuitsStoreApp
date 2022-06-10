@@ -102,7 +102,7 @@ public class SuitsController {
     public String delete(@PathVariable long id) {
         Suits suitsDelId = suitsDao.findById(id);
         suitsDao.delete(suitsDelId);
-        return "suitCrudSuccess";
+        return "redirect:/suits/delete";
     }
 
     @GetMapping("/list")

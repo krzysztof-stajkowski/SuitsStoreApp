@@ -7,7 +7,7 @@
 <head>
     <title>SUITS PAGE</title>
 </head>
-<h3>Delete suits from database</h3>
+<h3>Edit suits in database</h3>
 <body>
 
 <table>
