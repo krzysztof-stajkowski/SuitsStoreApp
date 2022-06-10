@@ -1,10 +1,9 @@
 package pl.coderslab.model;
 
+import org.hibernate.validator.constraints.Range;
+
 import javax.persistence.*;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
 @Entity
 @Table (name = "suits")
@@ -13,27 +12,24 @@ public class Suits {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Size(max = 10)
-    @NotNull
+    @Size(max = 10) //to bedzie docelowo wybór z form select
     private String pName;
 
-    @NotNull
-    @Size(min = 8)
-    @Size(max = 8)  // 25SS22BC -> 25 spring/summer 2022 Black
+    @Size(min = 8, max = 8, message = "Model musi mieć 8 znaków w formacie np. 25SS22BC")  // 25SS22BC -> 25 spring/summer 2022 Black
     private String pModel;
 
-    @NotNull
+    @Size(min = 6, max = 6, message = "Size musi mieć 6 znaków w formacie np. 176/50")
     private String pSize; // litery lub liczby
 
-    @NotNull
+    @NotBlank(message = "Kolor nie może być pusty")
     private String pColor;
 
-    @NotNull
+    @NotBlank(message = "Opis nie może być pusty (max 100 znaków)")
     @Size(max = 100)
     private String pDescription;
 
-    @NotNull
-    @Size(max = 25)
+    @NotBlank(message = "Skład musi mieć maksymalnie 25 znaków np. wool50% PY50%")
+    @Size(max = 25, message = "Skład musi mieć maksymalnie 25 znaków np. wool50% PY50%")
     private String pComposition;
 
     @NotNull

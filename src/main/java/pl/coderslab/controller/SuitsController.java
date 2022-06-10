@@ -2,12 +2,14 @@ package pl.coderslab.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.Dao.CategoryDao;
 import pl.coderslab.Dao.SuitsDao;
 import pl.coderslab.model.Category;
 import pl.coderslab.model.Suits;
 
+import javax.validation.Valid;
 import java.util.Collection;
 
 
@@ -40,7 +42,12 @@ public class SuitsController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String saveSuits(Suits suits) { //trzeba zaimportować klasę Model
+    public String saveSuits(@Valid Suits suits, BindingResult result) { //trzeba zaimportować klasę Model
+
+        if (result.hasErrors()) {
+            return "suitsAdd"; //do jsp, a formularz zostaje wypełniony i wystarczy skorygowac
+        }
+
         suits.setpName("Garnitur"); //ustawiam na twardo nazwę a reszta jest z formularza
         suits.setpAvailable(1); // 1 - dostępny na sprzedarz / na starcie jest 1. na zero można zmnienić w oddzielnej akcji
         suitsDao.save(suits);
@@ -55,7 +62,11 @@ public class SuitsController {
     }
 
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
-    public String editSuits(Suits suits) {
+    public String editSuits(@Valid Suits suits, BindingResult result) {
+
+        if (result.hasErrors()) {
+            return "suitsEdit"; //do jsp, a formularz zostaje wypełniony i wystarczy skorygowac
+        }
 
         Suits oldSuit = suitsDao.findById(suits.getId());
         oldSuit.setpAvailable(oldSuit.getpAvailable());

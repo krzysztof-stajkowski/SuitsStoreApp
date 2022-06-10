@@ -23,7 +23,7 @@
         <th>Composition</th>
         <th>Available</th>
     </tr>
-    <a href="<c:url value="/"/>">Go back </a>
+    <a href="<c:url value="/suits"/>">Go back </a> <br/><br/>  <%--adres do www CZERWONY ALE JEST OK to inteliJ tak pokazuje--%>
     </thead>
     <tbody>
     <c:forEach items="${suits}" var="suit">
