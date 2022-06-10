@@ -107,7 +107,7 @@ public class SuitsController {
 
     @GetMapping("/list")
     public String list(Model model) {
-        model.addAttribute("suits", suitsDao.getList());
+        model.addAttribute("suitsList", suitsDao.getList());
         return "suitsList";
     }
 

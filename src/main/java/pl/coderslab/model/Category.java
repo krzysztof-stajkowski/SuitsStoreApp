@@ -15,9 +15,6 @@ public class Category {
     @Size(max = 10)
     private String name;
 
-    @OneToMany(mappedBy = "category") //nie tworzymy kolejnej tabeli mapującej
-    private List<Product> products  = new ArrayList<>(); //gdy chcę po kategorii pobrać listę produktów
-
     public List<Suits> getSuits() {
         return suits;
     }
@@ -27,7 +24,7 @@ public class Category {
     }
 
     @OneToMany(mappedBy = "category") //nie tworzymy kolejnej tabeli mapującej
-    private List<Suits> suits  = new ArrayList<>();
+    private List<Suits> suits = new ArrayList<>(); //gdy chcę po kategorii pobrać listę produktów
 
     //Konstruktora w encji - NIE MA - potrzebny jest bezargumentowy który i tak jest Default i nie trzeba go tworzyć
 
@@ -47,20 +44,12 @@ public class Category {
         this.name = name;
     }
 
-    public List<Product> getProducts() {
-        return products;
-    }
-
-    public void setProducts(List<Product> products) {
-        this.products = products;
-    }
 
     @Override
     public String toString() {
         return "Category{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", products=" + products +
                 '}';
     }
 }

@@ -8,11 +8,16 @@
     <title>SUITS PAGE</title>
 </head>
 <h3>Edit suit in database</h3>
+<jsp:include page="suitListDuplicate.jsp"></jsp:include>
+
 <body>
+<p>Tutaj na górze jest widok z listą wstawiony za pomocą include suitListDuplicate.jsp ,ale c:ForEach nie chce działać i jest puste
+    <br> nie wiem jak to naprawić</p> <br><br>
+<a href="<c:url value="/suits"/>">Go back </a> <br/><br/>  <%--adres do www CZERWONY ALE JEST OK to inteliJ tak pokazuje--%>
 <h2>Select id and edit positions</h2>
 
 <form:form method="post" modelAttribute="suits"> <%--Klucz z kontrolera CZERWONY ALE JEST OK to inteliJ tak pokazuje--%>
-    <a href="<c:url value="/suits"/>">Go back </a> <br/><br/>  <%--adres do www CZERWONY ALE JEST OK to inteliJ tak pokazuje--%>
+
     Suit id
     <form:input path="id"/> <br/>
 

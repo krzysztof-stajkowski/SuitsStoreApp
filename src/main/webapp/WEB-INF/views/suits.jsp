@@ -7,6 +7,7 @@
 </head>
 <body>
 <h1>Wybór opcji do garniturów </h1>
+<a href="/">Main page</a> <br><br><br><br>
 <a href="suits/add">Click here to add a suit.</a> <br><br>
 <a href="suits/edit">Click here to edit a suit.</a> <br><br>
 <a href="suits/delete">Click here to delete a suit.</a> <br><br>
