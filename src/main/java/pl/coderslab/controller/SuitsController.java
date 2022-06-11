@@ -13,7 +13,6 @@ import javax.validation.Valid;
 import java.util.Collection;
 
 
-
 @Controller
 @RequestMapping("/suits")
 //@ResponseBody - z tym nie przechodzi do jsp
@@ -79,10 +78,10 @@ public class SuitsController {
         Category catNameEdit = categoryDao.findById(suits.getCategoryId());
 
         System.out.println("Nowy wpis id " + catNameEdit.getId());
-        System.out.println("Stary wpis id " +oldSuit.getCategory().getId());
+        System.out.println("Stary wpis id " + oldSuit.getCategory().getId());
 
         System.out.println("Nowy wpis name " + catNameEdit.getName());
-        System.out.println("Stary wpis name " +oldSuit.getCategory().getName());
+        System.out.println("Stary wpis name " + oldSuit.getCategory().getName());
 
         //Testy poniższe linie zwracają błędy
 //        oldSuit.getCategory().setId(catNameEdit.getId());
@@ -91,6 +90,7 @@ public class SuitsController {
         suitsDao.update(oldSuit);
         return "suitCrudSuccess";
     }
+
     //-----------------------------
     @GetMapping("/delete")
     public String delete(Model model) {

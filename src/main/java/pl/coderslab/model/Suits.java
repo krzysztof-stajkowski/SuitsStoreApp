@@ -1,7 +1,5 @@
 package pl.coderslab.model;
 
-import org.hibernate.validator.constraints.Range;
-
 import javax.persistence.*;
 import javax.validation.constraints.*;
 
@@ -45,8 +43,14 @@ public class Suits {
         this.pAvailable = pAvailable;
     }
 
-    @ManyToOne //wiele produktów (garniturów) do jednej kategorii
+    @ManyToOne //wiele produktów (garniturów i innych) do jednej kategorii
     private Category category;
+
+    @ManyToOne //wiele nazw produktów do jednej unikalnej nazwy w innej tabeli
+    private ProductList ProductList;
+
+    @ManyToOne //wiele nazw produktów do jednej unikalnej nazwy w tabeli ograniczającej maczowanie
+    private MatchTable matchTable;
 
     public long getId() {
         return id;
@@ -104,6 +108,7 @@ public class Suits {
         this.pComposition = pComposition;
     }
 
+    //---------
     public Category getCategory() {
         return category;
     }
@@ -116,9 +121,25 @@ public class Suits {
         this.category = category;
     }
 
+    public ProductList getProductList() {
+        return ProductList;
+    }
+
+    public void setProductList(ProductList productList) {
+        ProductList = productList;
+    }
+
+    public MatchTable getMatchTable() {
+        return matchTable;
+    }
+
+    public void setMatchTable(MatchTable matchTable) {
+        this.matchTable = matchTable;
+    }
+
     @Override
     public String toString() {
-        return "Product{" +
+        return "Suits{" +
                 "id=" + id +
                 ", pName='" + pName + '\'' +
                 ", pModel='" + pModel + '\'' +
@@ -126,8 +147,10 @@ public class Suits {
                 ", pColor='" + pColor + '\'' +
                 ", pDescription='" + pDescription + '\'' +
                 ", pComposition='" + pComposition + '\'' +
+                ", pAvailable=" + pAvailable +
                 ", category=" + category +
+                ", ProductList=" + ProductList +
+                ", matchTable=" + matchTable +
                 '}';
     }
-
 }

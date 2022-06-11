@@ -1,6 +1,7 @@
 package pl.coderslab.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +14,7 @@ public class Category {
     private long id;
 
     @Size(max = 10)
+    @NotBlank(message = "Podaj nazwę kategorii")
     private String name;
 
     public List<Suits> getSuits() {
