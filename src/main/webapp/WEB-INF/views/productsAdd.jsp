@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
@@ -9,20 +8,21 @@
 </head>
 <h3>Dodawanie towarów poza garniturami</h3>
 <body>
-<form:form method="post" modelAttribute="products"> <%--Klucz z kontrolera CZERWONY ALE JEST OK to inteliJ tak pokazuje--%>
-    <a href="<c:url value="/products"/>">Powrót </a> <br/><br/>  <%--adres do www CZERWONY ALE JEST OK to inteliJ tak pokazuje--%>
+<form:form method="post"
+           modelAttribute="products"> <%--Klucz z kontrolera CZERWONY ALE JEST OK to inteliJ tak pokazuje--%>
+    <a href="<c:url value="/products"/>">Powrót </a>
+    <br/><br/>  <%--adres do www CZERWONY ALE JEST OK to inteliJ tak pokazuje--%>
 
     <form:hidden path="id"/>
-<%-- Name w garniturach będzie zawsze Garnitur - Tutaj lista innych produktów   --%>
-<%--    Name--%>
-<%--    <form:input path="pName"/> <br/>--%>
-<%--    <form:errors path="pName"/><br/>--%>
-    Name
-    <form:radiobuttons items="${AtrybutProductNameList}" path="product_list" />
 
-<%--    Name--%>
-<%--    <form:select itemLabel="p_name" itemValue="id"--%>
-<%--                 path="product_list" items="${AtrybutProductNameList}"/>  &lt;%&ndash; odwołanie do innej tabeli po relacji&ndash;%&gt;--%>
+<%-- JAK TO DZIAŁA [ item label jest polem z encji z której pobieramy wartości do selecta ]  --%>
+<%-- JAK TO DZIAŁA [ path jest polem z encji do której będzie wgrywane z formularza ]   --%>
+<%-- JAK TO DZIAŁA [ nie można używać nazw tabel z bazy bo mogą być inne  ]--%>
+<%-- JAK TO DZIAŁA [ ${AtrybutMarynarkiSpodnie} jest to taki klucz z metody przy @ModelAttribute  ]--%>
+
+    Name
+    <form:select itemLabel="name" itemValue="id"
+                 path="pName" items="${AtrybutMarynarkiSpodnie}"/> <br/><br/> <%-- odwołanie do innej tabeli po relacji--%>
 
     Model
     <form:input path="pModel"/> <br/>
@@ -45,8 +45,7 @@
 
     <br/><br/>
     Zatwierdź zmiany <br/>
-    <input type="submit" value="Save" style="height:50px; width:150px; font-size:20px" >
-
+    <input type="submit" value="Save" style="height:50px; width:150px; font-size:20px">
 
 
 </form:form>

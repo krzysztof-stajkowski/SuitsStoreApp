@@ -3,7 +3,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <html>
 <head>
-    <title>Suits</title>
+    <title>Strona startowa</title>
 </head>
 <body>
 <h1>Wybór opcji do zarządzania garniturami </h1>

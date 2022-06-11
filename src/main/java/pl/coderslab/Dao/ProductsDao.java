@@ -7,6 +7,7 @@ import pl.coderslab.model.Suits;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
+import java.util.Collection;
 import java.util.List;
 
 @Repository
@@ -62,4 +63,10 @@ public class ProductsDao {
                 .getResultList();
     }
 
+    public List<ProductList> findListByProductNameExcept(String name) {
+        return entityManager
+                .createQuery("select b from ProductList b where NOT b.name =:var")
+                .setParameter("var", name)
+                .getResultList();
+    }
 }

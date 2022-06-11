@@ -3,7 +3,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <html>
 <head>
-    <title>Zarządzanie garniturami</title>
+    <title>Zarządzanie towarami</title>
 </head>
 <body>
 <h1>Zmiana dokonana pomyślnie</h1>
@@ -12,10 +12,10 @@
 
 <h1>Przejdż do -> </h1>
 <ul>
-    <li><a href="suits/add">Dodawanie garniturów.</a> <br><br></li>
-    <li><a href="suits/edit">Edycja garniturów.</a> <br><br></li>
-    <li><a href="suits/delete">Usuwanie garniturów.</a> <br><br></li>
-    <li><a href="suits/list">Lista garniturów.</a> <br><br></li>
+    <li><a href="products/add">Dodawanie towarów.</a> <br><br></li>
+    <li><a href="products/edit">Edycja towarów.</a> <br><br></li>
+    <li><a href="products/delete">Usuwanie towarów.</a> <br><br></li>
+    <li><a href="products/list">Lista towarów.</a> <br><br></li>
 </ul>
 </body>
 </html>

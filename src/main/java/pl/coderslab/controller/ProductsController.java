@@ -54,7 +54,7 @@ public class ProductsController {
 
         suits.setpAvailable(1); // 1 - dostępny na sprzedarz / na starcie jest 1. na zero można zmnienić w oddzielnej akcji
         suitsDao.save(suits);
-        return "suitCrudSuccess"; //strona bazowa Suits z wyborem Crud
+        return "prodCrudSuccess"; //strona bazowa Suits z wyborem Crud
     }
 
 
@@ -82,6 +82,11 @@ public class ProductsController {
     @ModelAttribute("AtrybutProductNameList") //to musi być aby jsp mogło pobrac dane do selecta
     public Collection<ProductList> findAllByProductNameExcept() {
         return this.productsDao.findAllByProductNameExcept("Garnitur"); //pobieram listę z bazy głównej towarów które nie są garniturami
+    }
+
+    @ModelAttribute("AtrybutMarynarkiSpodnie") //to musi być aby jsp mogło pobrac dane do selecta
+    public Collection<ProductList> findListByProductNameExcept() {
+        return this.productsDao.findListByProductNameExcept("Garnitur"); //pobieram listę z bazy głównej towarów które nie są garniturami
     }
 
     @GetMapping("/list")
