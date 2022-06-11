@@ -50,7 +50,7 @@ public class Suits {
     private ProductList ProductList;
 
     @ManyToOne //wiele nazw produktów do jednej unikalnej nazwy w tabeli ograniczającej maczowanie
-    private MatchTable matchTable;
+    private MatchTable MatchTable;
 
     public long getId() {
         return id;
@@ -130,11 +130,11 @@ public class Suits {
     }
 
     public MatchTable getMatchTable() {
-        return matchTable;
+        return MatchTable;
     }
 
     public void setMatchTable(MatchTable matchTable) {
-        this.matchTable = matchTable;
+        MatchTable = matchTable;
     }
 
     @Override
@@ -150,7 +150,7 @@ public class Suits {
                 ", pAvailable=" + pAvailable +
                 ", category=" + category +
                 ", ProductList=" + ProductList +
-                ", matchTable=" + matchTable +
+                ", matchTable=" + MatchTable +
                 '}';
     }
 }

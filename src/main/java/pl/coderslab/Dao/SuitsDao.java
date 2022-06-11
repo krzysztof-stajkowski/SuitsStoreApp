@@ -45,5 +45,23 @@ public class SuitsDao {
                 .getResultList();
     }
 
+    //-----------
+    public List<Suits> findAllBySuitsModel(String p_model) {
+        return entityManager
+                .createQuery("select b from Suits b where b.pModel=:model")
+                .setParameter("model", p_model)
+                .getResultList();
+    }
+
+    public List<Suits> findAllByProductName(String pName) {
+        return entityManager
+                .createQuery("select b from Suits b where b.ProductList.name=:var")
+                .setParameter("var", pName)
+                .getResultList();
+    }
+
+
+    // FIND BY SIZE -> do wyszukiwarki
+    // FIND BY SIZE && MODEL -> do maczowania
 
 }

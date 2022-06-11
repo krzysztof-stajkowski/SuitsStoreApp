@@ -7,10 +7,10 @@
 <head>
     <title>SUITS PAGE</title>
 </head>
-<h3>Add suit to database</h3>
+<h3>Dodawanie garniturów</h3>
 <body>
 <form:form method="post" modelAttribute="suits"> <%--Klucz z kontrolera CZERWONY ALE JEST OK to inteliJ tak pokazuje--%>
-    <a href="<c:url value="/suits"/>">Go back </a> <br/><br/>  <%--adres do www CZERWONY ALE JEST OK to inteliJ tak pokazuje--%>
+    <a href="<c:url value="/suits"/>">Powrót </a> <br/><br/>  <%--adres do www CZERWONY ALE JEST OK to inteliJ tak pokazuje--%>
 
     <form:hidden path="id"/>
 <%-- Name w garniturach będzie zawsze Garnitur   --%>

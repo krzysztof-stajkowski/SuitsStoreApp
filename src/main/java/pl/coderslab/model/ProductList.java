@@ -42,5 +42,12 @@ public class ProductList {
         this.name = name;
     }
 
-
+    @Override
+    public String toString() {
+        return "ProductList{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", suits=" + suits +
+                '}';
+    }
 }

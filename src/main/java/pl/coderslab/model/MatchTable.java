@@ -22,7 +22,7 @@ public class MatchTable {
         this.suits = suits;
     }
 
-    @OneToMany// (mappedBy = "MatchTable") //nie tworzymy kolejnej tabeli mapującej (aby mapowanie zadziałało muszą być getery i settery i relacje po obu stronach)
+    @OneToMany (mappedBy = "MatchTable") //nie tworzymy kolejnej tabeli mapującej (aby mapowanie zadziałało muszą być getery i settery i relacje po obu stronach)
     private List<Suits> suits = new ArrayList<>(); //gdy chcę pobrać listę unikatowych produktów
 
     public long getId() {
@@ -39,5 +39,14 @@ public class MatchTable {
 
     public void setmName(String mName) {
         this.mName = mName;
+    }
+
+    @Override
+    public String toString() {
+        return "MatchTable{" +
+                "id=" + id +
+                ", mName='" + mName + '\'' +
+                ", suits=" + suits +
+                '}';
     }
 }

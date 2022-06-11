@@ -5,6 +5,8 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.Dao.CategoryDao;
+import pl.coderslab.Dao.MatchTableDao;
+import pl.coderslab.Dao.ProductListDao;
 import pl.coderslab.Dao.SuitsDao;
 import pl.coderslab.model.Category;
 import pl.coderslab.model.Suits;
@@ -22,10 +24,15 @@ public class SuitsController {
 
     private final CategoryDao categoryDao;
 
+    private final MatchTableDao MatchTableDao;
 
-    public SuitsController(SuitsDao suitsDao, CategoryDao categoryDao) {
+    private final ProductListDao productListDao;
+
+    public SuitsController(SuitsDao suitsDao, CategoryDao categoryDao, MatchTableDao matchTableDao, ProductListDao productListDao) {
         this.suitsDao = suitsDao;
         this.categoryDao = categoryDao;
+        this.MatchTableDao = matchTableDao;
+        this.productListDao = productListDao;
     }
 
     @ModelAttribute("categoryList") //to musi być aby jsp mogło pobrac dane do selecta
@@ -107,7 +114,8 @@ public class SuitsController {
 
     @GetMapping("/list")
     public String list(Model model) {
-        model.addAttribute("suitsList", suitsDao.getList());
+        //model.addAttribute("suitsList", suitsDao.getList());
+        model.addAttribute("suitsList", suitsDao.findAllByProductName("Garnitur"));
         return "suitsList";
     }
 

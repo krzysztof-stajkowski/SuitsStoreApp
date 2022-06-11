@@ -7,7 +7,7 @@
 <head>
     <title>SUITS PAGE</title>
 </head>
-<h3>Delete suits from database</h3>
+<h3>Usuwanie garniturów</h3>
 <body>
 
 <table>
@@ -23,7 +23,7 @@
         <th>Composition</th>
         <th>Available</th>
     </tr>
-    <a href="<c:url value="/suits"/>">Go back </a> <br/><br/>  <%--adres do www CZERWONY ALE JEST OK to inteliJ tak pokazuje--%>
+    <a href="<c:url value="/suits"/>">Powrót </a> <br/><br/>  <%--adres do www CZERWONY ALE JEST OK to inteliJ tak pokazuje--%>
     </thead>
     <tbody>
     <c:forEach items="${suits}" var="suit">
@@ -39,7 +39,7 @@
             <td>${suit.pAvailable}</td>
 
             <td>
-             <a href="<c:url value="delete/${suit.id}"/>">Delete from database</a>
+             <a href="<c:url value="delete/${suit.id}"/>">Usuń tę pozycję z bazy</a>
             </td>
         </tr>
     </c:forEach>
