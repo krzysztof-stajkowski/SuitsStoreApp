@@ -13,10 +13,12 @@
     <a href="<c:url value="/products"/>">Powrót </a> <br/><br/>  <%--adres do www CZERWONY ALE JEST OK to inteliJ tak pokazuje--%>
 
     <form:hidden path="id"/>
-<%-- Name w garniturach będzie zawsze Garnitur   --%>
-<%--    name--%>
+<%-- Name w garniturach będzie zawsze Garnitur - Tutaj lista innych produktów   --%>
+<%--    Name--%>
 <%--    <form:input path="pName"/> <br/>--%>
 <%--    <form:errors path="pName"/><br/>--%>
+    Name
+    <form:radiobuttons items="${AtrybutProductNameList}" path="product_list" />
 
 <%--    Name--%>
 <%--    <form:select itemLabel="p_name" itemValue="id"--%>

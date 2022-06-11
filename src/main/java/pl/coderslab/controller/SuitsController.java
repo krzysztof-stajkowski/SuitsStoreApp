@@ -4,10 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import pl.coderslab.Dao.CategoryDao;
-import pl.coderslab.Dao.MatchTableDao;
-import pl.coderslab.Dao.ProductListDao;
-import pl.coderslab.Dao.SuitsDao;
+import pl.coderslab.Dao.*;
 import pl.coderslab.model.Category;
 import pl.coderslab.model.Suits;
 
@@ -28,11 +25,14 @@ public class SuitsController {
 
     private final ProductListDao productListDao;
 
-    public SuitsController(SuitsDao suitsDao, CategoryDao categoryDao, MatchTableDao matchTableDao, ProductListDao productListDao) {
+    private final ProductsDao productsDao;
+
+    public SuitsController(SuitsDao suitsDao, CategoryDao categoryDao, MatchTableDao matchTableDao, ProductListDao productListDao, ProductsDao productsDao) {
         this.suitsDao = suitsDao;
         this.categoryDao = categoryDao;
         this.MatchTableDao = matchTableDao;
         this.productListDao = productListDao;
+        this.productsDao = productsDao;
     }
 
     @GetMapping
