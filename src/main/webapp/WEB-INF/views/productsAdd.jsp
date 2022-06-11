@@ -18,9 +18,9 @@
 <%--    <form:input path="pName"/> <br/>--%>
 <%--    <form:errors path="pName"/><br/>--%>
 
-    Name
-    <form:select itemLabel="p_name" itemValue="id"
-                 path="product_list" items="${AtrybutProductNameList}"/>  <%-- odwołanie do innej tabeli po relacji--%>
+<%--    Name--%>
+<%--    <form:select itemLabel="p_name" itemValue="id"--%>
+<%--                 path="product_list" items="${AtrybutProductNameList}"/>  &lt;%&ndash; odwołanie do innej tabeli po relacji&ndash;%&gt;--%>
 
     Model
     <form:input path="pModel"/> <br/>
