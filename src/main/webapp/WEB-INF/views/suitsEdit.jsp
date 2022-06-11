@@ -41,7 +41,8 @@
     <form:select path="category.id" items="${categoryList}" itemLabel="name" itemValue="id"/>
 
     <br/><br/>
-    <input type="submit" value="Save"> <br/>
+    Zatwierdź zmiany
+    <input type="submit" value="Save" style="height:50px; width:150px; font-size:20px" >
     <form:errors path="*"/> <%--display all error messages associated with any fields.--%>
 
 

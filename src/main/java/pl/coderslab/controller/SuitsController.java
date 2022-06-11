@@ -35,11 +35,6 @@ public class SuitsController {
         this.productListDao = productListDao;
     }
 
-    @ModelAttribute("categoryList") //to musi być aby jsp mogło pobrac dane do selecta
-    public Collection<Category> categoryList() {
-        return this.categoryDao.getList(); //pobieram listę z bazy categorii ale w Dao uszczupliłem select tylko do name
-    }
-
     @GetMapping
     @RequestMapping(value = "/add")
     public String saveSuits(Model model) { //trzeba zaimportować klasę Model
@@ -101,7 +96,7 @@ public class SuitsController {
     //-----------------------------
     @GetMapping("/delete")
     public String delete(Model model) {
-        model.addAttribute("suits", suitsDao.getList());
+        model.addAttribute("suits", suitsDao.findAllByProductName("Garnitur")); //tylko garnitury
         return "suitsDel";
     }
 
@@ -112,9 +107,15 @@ public class SuitsController {
         return "redirect:/suits/delete";
     }
 
+//--------------
+    @ModelAttribute("categoryList") //to musi być aby jsp mogło pobrac dane do selecta
+    public Collection<Category> categoryList() {
+        return this.categoryDao.getList(); //pobieram listę z bazy categorii ale w Dao uszczupliłem select tylko do name
+    }
+
     @GetMapping("/list")
     public String list(Model model) {
-        //model.addAttribute("suitsList", suitsDao.getList());
+        //model.addAttribute("suitsList", suitsDao.getList()); //100% z listy
         model.addAttribute("suitsList", suitsDao.findAllByProductName("Garnitur"));
         return "suitsList";
     }

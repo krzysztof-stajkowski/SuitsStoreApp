@@ -9,14 +9,10 @@ import java.util.List;
 
 @Repository
 @Transactional
-public class ProductListDao {
+public class ProductListDao { // ta klasa służy do przyszłego Crud tabeli z listą unikatów
 
     @PersistenceContext
     private EntityManager entityManager;
-
-    public List<ProductList> getList() {
-        return entityManager.createQuery("select b from ProductList b").getResultList(); //tu musi być samo b inaczej będzie błąd
-    }
 
     public ProductList findById(long id) {
         return entityManager.find(ProductList.class, id);
@@ -26,5 +22,12 @@ public class ProductListDao {
         entityManager.merge(productList);
     }
 
+    public List<ProductList> getListExceptSuits(long id) {
+        return entityManager
+                .createQuery("select b from ProductList b where not b.id=:pos")
+                .setParameter("pos", id)
+                .getResultList();
+    }
 
 }
+

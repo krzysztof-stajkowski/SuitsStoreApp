@@ -18,10 +18,13 @@ public class HomeController {
     public String about() {
         return "Here you can find some details"; }
 
-    @GetMapping("/suits")
+    @GetMapping("/suits") // WWW tu trzeba ustawić stronę po starcie aby przeszło do pierwszego widoku
     public String suitsMain() {
-        return "suits"; }
+        return "suits"; } //JSP
 
+    @GetMapping("/products") // WWW tu trzeba ustawić stronę po starcie aby przeszło do pierwszego widoku
+    public String productsMain() {
+        return "products"; } //JSP
 
 }
 

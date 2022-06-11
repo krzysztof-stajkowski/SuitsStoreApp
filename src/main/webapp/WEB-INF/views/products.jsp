@@ -3,14 +3,19 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <html>
 <head>
-    <title>Products</title>
+    <title>Inne towary</title>
 </head>
 <body>
 <h1>Wybór opcji do zarządzania innymi towarami </h1>
-<a href="/">Main page</a> <br><br><br><br>
-<a href="products/add">Click here to add a suit.</a> <br><br>
-<a href="products/edit">Click here to edit a suit.</a> <br><br>
-<a href="products/delete">Click here to delete a suit.</a> <br><br>
-<a href="products/list">Click here to list suits.</a> <br><br>
+
+<a href="/">Powrót do strony głównej</a> <br><br><br><br>
+<p><Small><i> Nie dotyczy garniturów </i></Small></p>
+<ul>
+    <li><a href="products/add">Dodawanie towarów.</a> <br><br></li>
+    <li><a href="products/edit">Edycja towarów.</a> <br><br></li>
+    <li><a href="products/delete">Usuwanie towarów.</a> <br><br></li>
+    <li><a href="products/list">Lista towarów.</a> <br><br></li>
+</ul>
+
 </body>
 </html>

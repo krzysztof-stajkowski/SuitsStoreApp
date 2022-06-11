@@ -7,16 +7,21 @@
 <head>
     <title>SUITS PAGE</title>
 </head>
-<h3>Dodawanie garniturów</h3>
+<h3>Dodawanie towarów poza garniturami</h3>
 <body>
-<form:form method="post" modelAttribute="suits"> <%--Klucz z kontrolera CZERWONY ALE JEST OK to inteliJ tak pokazuje--%>
-    <a href="<c:url value="/suits"/>">Powrót </a> <br/><br/>  <%--adres do www CZERWONY ALE JEST OK to inteliJ tak pokazuje--%>
+<form:form method="post" modelAttribute="products"> <%--Klucz z kontrolera CZERWONY ALE JEST OK to inteliJ tak pokazuje--%>
+    <a href="<c:url value="/products"/>">Powrót </a> <br/><br/>  <%--adres do www CZERWONY ALE JEST OK to inteliJ tak pokazuje--%>
 
     <form:hidden path="id"/>
 <%-- Name w garniturach będzie zawsze Garnitur   --%>
 <%--    name--%>
 <%--    <form:input path="pName"/> <br/>--%>
 <%--    <form:errors path="pName"/><br/>--%>
+
+    Name
+    <form:select itemLabel="p_name" itemValue="id"
+                 path="product_list" items="${AtrybutProductNameList}"/>  <%-- odwołanie do innej tabeli po relacji--%>
+
     Model
     <form:input path="pModel"/> <br/>
     <form:errors path="pModel"/><br/>
@@ -34,7 +39,7 @@
     <form:errors path="pComposition"/><br/>
     Category
     <form:select itemLabel="name" itemValue="id"
-                 path="category.id" items="${categoryList}"/>  <%-- odwołanie do innej tabeli po relacji--%>
+                 path="category.id" items="${AtrybutCategoryList}"/>  <%-- odwołanie do innej tabeli po relacji--%>
 
     <br/><br/>
     Zatwierdź zmiany <br/>
