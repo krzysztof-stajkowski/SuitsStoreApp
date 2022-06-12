@@ -11,7 +11,6 @@ import pl.coderslab.model.Suits;
 
 import javax.validation.Valid;
 import java.util.Collection;
-import java.util.List;
 
 
 @Controller

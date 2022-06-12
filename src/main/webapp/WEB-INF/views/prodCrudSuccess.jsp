@@ -12,10 +12,10 @@
 
 <h1>Przejdż do -> </h1>
 <ul>
-    <li><a href="products/add">Dodawanie towarów.</a> <br><br></li>
-    <li><a href="products/edit">Edycja towarów.</a> <br><br></li>
-    <li><a href="products/delete">Usuwanie towarów.</a> <br><br></li>
-    <li><a href="products/list">Lista towarów.</a> <br><br></li>
+    <li><a href="/products/add">Dodawanie towarów.</a> <br><br></li>
+    <li><a href="/products/edit">Edycja towarów.</a> <br><br></li>
+    <li><a href="/products/delete">Usuwanie towarów.</a> <br><br></li>
+    <li><a href="/products/list">Lista towarów.</a> <br><br></li>
 </ul>
 </body>
 </html>

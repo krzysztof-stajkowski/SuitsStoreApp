@@ -39,6 +39,9 @@ public class ProductsDao {
     public List getList() {
         return entityManager.createQuery("select b from Suits b").getResultList();
     }
+    public List getProdList() {
+        return entityManager.createQuery("select b from ProductList b").getResultList();
+    }
 
     //zapytanie JPQL
     public List findAllByCategory(int category) {
@@ -58,7 +61,7 @@ public class ProductsDao {
 
     public List<ProductList> findAllByProductNameExcept(String p_name) {
         return entityManager
-                .createQuery("select b from Suits b where NOT b.ProductList.name =:var")
+                .createQuery("select b from Suits b where NOT b.pName =:var")
                 .setParameter("var", p_name)
                 .getResultList();
     }

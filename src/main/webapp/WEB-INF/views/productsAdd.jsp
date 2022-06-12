@@ -15,13 +15,14 @@
 
     <form:hidden path="id"/>
 
-<%-- JAK TO DZIAŁA [ item label jest polem z encji z której pobieramy wartości do selecta ]  --%>
-<%-- JAK TO DZIAŁA [ path jest polem z encji do której będzie wgrywane z formularza ]   --%>
-<%-- JAK TO DZIAŁA [ nie można używać nazw tabel z bazy bo mogą być inne  ]--%>
-<%-- JAK TO DZIAŁA [ ${AtrybutMarynarkiSpodnie} jest to taki klucz z metody przy @ModelAttribute  ]--%>
+<%-- JAK TO DZIAŁA [ itemLabel jest polem z encji (product_list) z której pobieramy co ma być wyświetolne w liście rozwijanej selecta ]  --%>
+<%-- JAK TO DZIAŁA [ itemValue jest polem z encji (product_list) z której pobieramy wartości do selecta ]  --%>
+<%-- JAK TO DZIAŁA [ path jest polem z encji (suits) do której będą wgrywane dane z formularza ]   --%>
+<%-- JAK TO DZIAŁA [ nie można używać nazw tabel z bazy bo mogą być inne, tylko z modelu projektu  ]--%>
+<%-- JAK TO DZIAŁA [ ${AtrybutMarynarkiSpodnie} jest to taki klucz z metody w kontrolerze przy @ModelAttribute  ]--%>
 
     Name
-    <form:select itemLabel="name" itemValue="id"
+    <form:select itemLabel="name" itemValue="name"
                  path="pName" items="${AtrybutMarynarkiSpodnie}"/> <br/><br/> <%-- odwołanie do innej tabeli po relacji--%>
 
     Model

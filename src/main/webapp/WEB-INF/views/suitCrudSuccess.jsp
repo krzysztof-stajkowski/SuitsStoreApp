@@ -10,12 +10,12 @@
 
 <a href="/">Powrót do strony głównej</a> <br><br><br><br>
 
-<h1>Przejdż do -> </h1>
+<h1>Przejdź do -> </h1>
 <ul>
-    <li><a href="suits/add">Dodawanie garniturów.</a> <br><br></li>
-    <li><a href="suits/edit">Edycja garniturów.</a> <br><br></li>
-    <li><a href="suits/delete">Usuwanie garniturów.</a> <br><br></li>
-    <li><a href="suits/list">Lista garniturów.</a> <br><br></li>
+    <li><a href="/suits/add">Dodawanie garniturów.</a> <br><br></li>
+    <li><a href="/suits/edit">Edycja garniturów.</a> <br><br></li>
+    <li><a href="/suits/delete">Usuwanie garniturów.</a> <br><br></li>
+    <li><a href="/suits/list">Lista garniturów.</a> <br><br></li>
 </ul>
 </body>
 </html>

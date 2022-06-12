@@ -14,9 +14,7 @@
 
     <form:hidden path="id"/>
 <%-- Name w garniturach będzie zawsze Garnitur   --%>
-<%--    name--%>
-<%--    <form:input path="pName"/> <br/>--%>
-<%--    <form:errors path="pName"/><br/>--%>
+
     Model
     <form:input path="pModel"/> <br/>
     <form:errors path="pModel"/><br/>

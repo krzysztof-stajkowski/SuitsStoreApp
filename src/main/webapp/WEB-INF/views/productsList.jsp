@@ -26,17 +26,17 @@
     <a href="<c:url value="/products"/>">Powrót</a> <br/><br/>  <%--adres do www CZERWONY ALE JEST OK to inteliJ tak pokazuje--%>
     </thead>
     <tbody>
-    <c:forEach items="${productNameList}" var="suit">
+    <c:forEach items="${productNameList}" var="prod">
         <tr>
-            <td>${suit.id}</td>
-            <td>${suit.pName}</td>
-            <td>${suit.pModel}</td>
-            <td>${suit.pSize}</td>
-            <td>${suit.category.name}</td> <%-- odwołanie do innej tabeli po relacji--%>
-            <td>${suit.pColor}</td>
-            <td>${suit.pDescription}</td>
-            <td>${suit.pComposition}</td>
-            <td>${suit.pAvailable}</td>
+            <td>${prod.id}</td>
+            <td>${prod.pName}</td>
+            <td>${prod.pModel}</td>
+            <td>${prod.pSize}</td>
+            <td>${prod.category.name}</td> <%-- odwołanie do innej tabeli po relacji--%>
+            <td>${prod.pColor}</td>
+            <td>${prod.pDescription}</td>
+            <td>${prod.pComposition}</td>
+            <td>${prod.pAvailable}</td>
 
             <td>
 <%--             Tutaj można wstawić jakiś opis lub link i b ędzie obok każdego wiersza--%>

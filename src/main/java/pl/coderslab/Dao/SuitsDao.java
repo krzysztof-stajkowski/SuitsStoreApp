@@ -53,9 +53,16 @@ public class SuitsDao {
                 .getResultList();
     }
 
+    public List<Suits> findProductId(String name) {
+        return entityManager
+                .createQuery("select b from ProductList b where b.name=:name")
+                .setParameter("name", name)
+                .getResultList();
+    }
+
     public List<Suits> findAllByProductName(String pName) {
         return entityManager
-                .createQuery("select b from Suits b where b.ProductList.name=:var")
+                .createQuery("select b from Suits b where b.pName=:var")
                 .setParameter("var", pName)
                 .getResultList();
     }

@@ -124,12 +124,11 @@ public class Suits {
     public ProductList getProductList() {
         return ProductList;
     }
-
-    public void setProductList(ProductList productList) {
+    public void setProductList(ProductList productList) { //Dlaczego nie ustawiło się this jak w category?
         ProductList = productList;
     }
 
-    public MatchTable getMatchTable() {
+    public MatchTable getMatchTable() { //Dlaczego nie ustawiło się this jak w category?
         return MatchTable;
     }
 

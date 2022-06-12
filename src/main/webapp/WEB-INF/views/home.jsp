@@ -5,7 +5,7 @@
     <title>Strona startowa</title>
 </head>
 <body>
-<h1 style="text-align:center;">Strona startowa - frontend w przyszłości</h1>
+<h1 style="text-align:center;">SUITS STORE APP</h1>
 <div>
     <h3>ZARZĄDZANIE GARNITURAMI</h3>
     <p><i>Dodawanie, edycja i kasowanie zasobów garniturowych</i></p>
