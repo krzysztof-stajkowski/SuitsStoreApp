@@ -14,8 +14,15 @@ public class Category {
     private long id;
 
     @Size(max = 10)
-    @NotBlank(message = "Podaj nazwę kategorii")
+    @NotBlank(message = "Podaj nazwę kategorii") // to na przyszłość jak bedzie crud do tej tabeli
     private String name;
+
+
+    @OneToMany(mappedBy = "category") //nie tworzymy kolejnej tabeli mapującej
+    private List<Suits> suits = new ArrayList<>(); //gdy chcę po kategorii pobrać listę produktów
+
+    //Konstruktora w encji - NIE MA - potrzebny jest bezargumentowy który i tak jest Default i nie trzeba go tworzyć
+
 
     public List<Suits> getSuits() {
         return suits;
@@ -24,11 +31,6 @@ public class Category {
     public void setSuits(List<Suits> suits) {
         this.suits = suits;
     }
-
-    @OneToMany(mappedBy = "category") //nie tworzymy kolejnej tabeli mapującej
-    private List<Suits> suits = new ArrayList<>(); //gdy chcę po kategorii pobrać listę produktów
-
-    //Konstruktora w encji - NIE MA - potrzebny jest bezargumentowy który i tak jest Default i nie trzeba go tworzyć
 
     public long getId() {
         return id;

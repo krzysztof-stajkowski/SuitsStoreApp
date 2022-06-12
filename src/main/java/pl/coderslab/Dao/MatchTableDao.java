@@ -1,7 +1,7 @@
 package pl.coderslab.Dao;
 
 import org.springframework.stereotype.Repository;
-import pl.coderslab.model.MatchTable;
+import pl.coderslab.model.Matchtable;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -19,21 +19,21 @@ public class MatchTableDao {
     @PersistenceContext
     private EntityManager entityManager; //EntityManager – zarządca encji, udostępnia nam możliwość operowania na naszych encjach.
 
-    public List<MatchTable> getList() {
+    public List<Matchtable> getList() {
         return entityManager.createQuery("select b from Category b").getResultList(); //tu musi być samo b inaczej będzie błąd
     }
 
-    public MatchTable findById(long id) {
-        return entityManager.find(MatchTable.class, id);
+    public Matchtable findById(long id) {
+        return entityManager.find(Matchtable.class, id);
     }
 
-    public void update(MatchTable matchTable) {
+    public void update(Matchtable matchTable) {
         entityManager.merge(matchTable);
     }
 
-    public List<MatchTable> findAllByMatchName(String name) {
+    public List<Matchtable> findAllByMatchName(String name) {
         return entityManager
-                .createQuery("select b from MatchTable b where b.mName=:Name")
+                .createQuery("select b from Matchtable b where b.mName=:Name")
                 .setParameter("Name", name)
                 .getResultList();
     }

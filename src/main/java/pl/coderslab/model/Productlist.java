@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class ProductList {
+public class Productlist {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +23,7 @@ public class ProductList {
         this.suits = suits;
     }
 
-    @OneToMany (mappedBy = "ProductList") //nie tworzymy kolejnej tabeli mapującej (aby mapowanie zadziałało muszą być getery i settery i relacje po obu stronach)
+    @OneToMany (mappedBy = "productlist") //nie tworzymy kolejnej tabeli mapującej (aby mapowanie zadziałało muszą być getery i settery i relacje po obu stronach)
     private List<Suits> suits = new ArrayList<>(); //gdy chcę pobrać listę unikatowych produktów
 
     public long getId() {
@@ -44,7 +44,7 @@ public class ProductList {
 
     @Override
     public String toString() {
-        return "ProductList{" +
+        return "Productlist{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", suits=" + suits +

@@ -1,7 +1,8 @@
 package pl.coderslab.Dao;
 
 import org.springframework.stereotype.Repository;
-import pl.coderslab.model.ProductList;
+import pl.coderslab.model.Productlist;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -14,17 +15,22 @@ public class ProductListDao { // ta klasa służy do przyszłego Crud tabeli z l
     @PersistenceContext
     private EntityManager entityManager;
 
-    public ProductList findById(long id) {
-        return entityManager.find(ProductList.class, id);
+    //test z LMS
+    public List<Productlist> getList() {
+        return entityManager.createQuery("select b from Productlist b").getResultList(); //tu musi być samo b inaczej będzie błąd
     }
 
-    public void update(ProductList productList) {
+    public Productlist findById(long id) {
+        return entityManager.find(Productlist.class, id);
+    }
+
+    public void update(Productlist productList) {
         entityManager.merge(productList);
     }
 
-    public List<ProductList> getListExceptSuits(long id) {
+    public List<Productlist> getListExceptSuits(long id) {
         return entityManager
-                .createQuery("select b from ProductList b where not b.id=:pos")
+                .createQuery("select b from Productlist b where not b.id=:pos")
                 .setParameter("pos", id)
                 .getResultList();
     }

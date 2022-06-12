@@ -9,11 +9,11 @@
 <h3>Dodawanie towarów poza garniturami</h3>
 <body>
 <form:form method="post"
-           modelAttribute="products"> <%--Klucz z kontrolera CZERWONY ALE JEST OK to inteliJ tak pokazuje--%>
+           modelAttribute="products"> <%--Klucz z kontrolera add (linia 43) CZERWONY ALE JEST OK to inteliJ tak pokazuje--%>
     <a href="<c:url value="/products"/>">Powrót </a>
     <br/><br/>  <%--adres do www CZERWONY ALE JEST OK to inteliJ tak pokazuje--%>
 
-    <form:hidden path="id"/>
+   <form:hidden path="id"/>
 
 <%-- JAK TO DZIAŁA [ itemLabel jest polem z encji (product_list) z której pobieramy co ma być wyświetolne w liście rozwijanej selecta ]  --%>
 <%-- JAK TO DZIAŁA [ itemValue jest polem z encji (product_list) z której pobieramy wartości do selecta ]  --%>
@@ -46,7 +46,7 @@
 
     <br/><br/>
     Zatwierdź zmiany <br/>
-    <input type="submit" value="Save" style="height:50px; width:150px; font-size:20px">
+    <input type="submit" value="Save" style="height:25px; width:150px; font-size:12px">
 
 
 </form:form>

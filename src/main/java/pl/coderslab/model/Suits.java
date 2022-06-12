@@ -47,10 +47,10 @@ public class Suits {
     private Category category;
 
     @ManyToOne //wiele nazw produktów do jednej unikalnej nazwy w innej tabeli
-    private ProductList ProductList;
+    private Productlist productlist;
 
     @ManyToOne //wiele nazw produktów do jednej unikalnej nazwy w tabeli ograniczającej maczowanie
-    private MatchTable MatchTable;
+    private Matchtable matchtable;
 
     public long getId() {
         return id;
@@ -121,19 +121,19 @@ public class Suits {
         this.category = category;
     }
 
-    public ProductList getProductList() {
-        return ProductList;
+    public Productlist getProductlist() {
+        return productlist;
     }
-    public void setProductList(ProductList productList) { //Dlaczego nie ustawiło się this jak w category?
-        ProductList = productList;
-    }
-
-    public MatchTable getMatchTable() { //Dlaczego nie ustawiło się this jak w category?
-        return MatchTable;
+    public void setProductlist(Productlist productList) { //Dlaczego nie ustawiło się this jak w category?
+        this.productlist = productList;
     }
 
-    public void setMatchTable(MatchTable matchTable) {
-        MatchTable = matchTable;
+    public Matchtable getMatchtable() { //Dlaczego nie ustawiło się this jak w category?
+        return matchtable;
+    }
+
+    public void setMatchtable(Matchtable matchTable) {
+        this.matchtable = matchTable;
     }
 
     @Override
@@ -148,8 +148,8 @@ public class Suits {
                 ", pComposition='" + pComposition + '\'' +
                 ", pAvailable=" + pAvailable +
                 ", category=" + category +
-                ", ProductList=" + ProductList +
-                ", matchTable=" + MatchTable +
+                ", Productlist=" + productlist +
+                ", matchTable=" + matchtable +
                 '}';
     }
 }

@@ -1,13 +1,12 @@
 package pl.coderslab.Dao;
 
 import org.springframework.stereotype.Repository;
-import pl.coderslab.model.ProductList;
+import pl.coderslab.model.Productlist;
 import pl.coderslab.model.Suits;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
-import java.util.Collection;
 import java.util.List;
 
 @Repository
@@ -40,7 +39,7 @@ public class ProductsDao {
         return entityManager.createQuery("select b from Suits b").getResultList();
     }
     public List getProdList() {
-        return entityManager.createQuery("select b from ProductList b").getResultList();
+        return entityManager.createQuery("select b from Productlist b").getResultList();
     }
 
     //zapytanie JPQL
@@ -59,16 +58,16 @@ public class ProductsDao {
                 .getResultList();
     }
 
-    public List<ProductList> findAllByProductNameExcept(String p_name) {
+    public List<Productlist> findAllByProductNameExcept(String p_name) {
         return entityManager
                 .createQuery("select b from Suits b where NOT b.pName =:var")
                 .setParameter("var", p_name)
                 .getResultList();
     }
 
-    public List<ProductList> findListByProductNameExcept(String name) {
+    public List<Productlist> findListByProductNameExcept(String name) {
         return entityManager
-                .createQuery("select b from ProductList b where NOT b.name =:var")
+                .createQuery("select b from Productlist b where NOT b.name =:var")
                 .setParameter("var", name)
                 .getResultList();
     }

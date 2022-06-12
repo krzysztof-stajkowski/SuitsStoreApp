@@ -42,8 +42,7 @@
 
     <br/><br/>
     Zatwierdź zmiany
-    <input type="submit" value="Save" style="height:50px; width:150px; font-size:20px" >
-    <form:errors path="*"/> <%--display all error messages associated with any fields.--%>
+    <input type="submit" value="Save" style="height:25px; width:150px; font-size:12px">    <form:errors path="*"/> <%--display all error messages associated with any fields.--%>
 
 
 </form:form>

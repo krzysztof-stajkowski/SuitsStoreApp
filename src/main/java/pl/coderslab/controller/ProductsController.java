@@ -6,7 +6,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.Dao.*;
 import pl.coderslab.model.Category;
-import pl.coderslab.model.ProductList;
+import pl.coderslab.model.Productlist;
 import pl.coderslab.model.Suits;
 
 import javax.validation.Valid;
@@ -73,18 +73,18 @@ public class ProductsController {
 
     //------------
 
-    @ModelAttribute("AtrybutCategoryList") //to musi być aby jsp mogło pobrac dane do selecta
+    @ModelAttribute("AtrybutCategoryList") //mapping do JSP
     public Collection<Category> categoryList() {
-        return this.categoryDao.getList(); //pobieram listę z bazy categorii ale w Dao uszczupliłem select tylko do name
+        return this.categoryDao.getList(); //pobieram listę z bazy categorii
     }
 
-    @ModelAttribute("AtrybutProductNameList") //to musi być aby jsp mogło pobrac dane do selecta
-    public Collection<ProductList> findAllByProductNameExcept() {
-        return this.productsDao.findAllByProductNameExcept("Garnitur"); //pobieram listę z bazy głównej towarów które nie są garniturami
-    }
+//    @ModelAttribute("AtrybutProductNameList") //mapping do JSP
+//    public Collection<Productlist> findAllByProductNameExcept() {
+//        return this.productsDao.findAllByProductNameExcept("Garnitur"); //pobieram listę z bazy głównej towarów które nie są garniturami
+//    }
 
-    @ModelAttribute("AtrybutMarynarkiSpodnie") //to musi być aby jsp mogło pobrac dane do selecta
-    public Collection<ProductList> findListByProductNameExcept() {
+    @ModelAttribute("AtrybutMarynarkiSpodnie") //mapping do JSP
+    public Collection<Productlist> findListByProductNameExcept() {
         return this.productsDao.findListByProductNameExcept("Garnitur"); //pobieram listę z bazy głównej towarów które nie są garniturami
     }
 

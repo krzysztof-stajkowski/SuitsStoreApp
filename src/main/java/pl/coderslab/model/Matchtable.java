@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class MatchTable {
+public class Matchtable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -22,7 +22,7 @@ public class MatchTable {
         this.suits = suits;
     }
 
-    @OneToMany (mappedBy = "MatchTable") //nie tworzymy kolejnej tabeli mapującej (aby mapowanie zadziałało muszą być getery i settery i relacje po obu stronach)
+    @OneToMany (mappedBy = "matchtable") //nie tworzymy kolejnej tabeli mapującej (aby mapowanie zadziałało muszą być getery i settery i relacje po obu stronach)
     private List<Suits> suits = new ArrayList<>(); //gdy chcę pobrać listę unikatowych produktów
 
     public long getId() {
@@ -43,7 +43,7 @@ public class MatchTable {
 
     @Override
     public String toString() {
-        return "MatchTable{" +
+        return "Matchtable{" +
                 "id=" + id +
                 ", mName='" + mName + '\'' +
                 ", suits=" + suits +

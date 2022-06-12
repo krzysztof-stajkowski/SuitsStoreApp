@@ -35,6 +35,7 @@ public class SuitsController {
         this.productsDao = productsDao;
     }
 
+
     @GetMapping
     @RequestMapping(value = "/add")
     public String saveSuits(Model model) { //trzeba zaimportować klasę Model

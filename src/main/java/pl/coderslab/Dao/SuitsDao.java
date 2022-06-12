@@ -55,7 +55,7 @@ public class SuitsDao {
 
     public List<Suits> findProductId(String name) {
         return entityManager
-                .createQuery("select b from ProductList b where b.name=:name")
+                .createQuery("select b from Productlist b where b.name=:name")
                 .setParameter("name", name)
                 .getResultList();
     }

@@ -36,8 +36,7 @@
 
     <br/><br/>
     Zatwierdź zmiany <br/>
-    <input type="submit" value="Save" style="height:50px; width:150px; font-size:20px" >
-
+    <input type="submit" value="Save" style="height:25px; width:150px; font-size:12px">
 
 
 </form:form>
