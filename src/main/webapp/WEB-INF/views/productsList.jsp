@@ -29,7 +29,7 @@
     <c:forEach items="${productNameList}" var="prod">
         <tr>
             <td>${prod.id}</td>
-            <td>${prod.pName}</td>
+            <td>${prod.productlist.name}</td>
             <td>${prod.pModel}</td>
             <td>${prod.pSize}</td>
             <td>${prod.category.name}</td> <%-- odwołanie do innej tabeli po relacji--%>

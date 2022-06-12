@@ -14,6 +14,9 @@
 
     <form:hidden path="id"/>
 <%-- Name w garniturach będzie zawsze Garnitur   --%>
+    Name
+    <form:select itemLabel="name" itemValue="id"
+                 path="productlist.id" items="${AtrybutSuits}"/> <br/><br/>
 
     Model
     <form:input path="pModel"/> <br/>

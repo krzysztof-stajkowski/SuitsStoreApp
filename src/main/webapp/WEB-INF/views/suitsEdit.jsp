@@ -12,8 +12,8 @@
 <jsp:include page="suitListDuplicate.jsp"></jsp:include>
 
 <body>
-<p>Tutaj na górze jest widok z listą wstawiony za pomocą include suitListDuplicate.jsp ,ale c:ForEach nie chce działać i jest puste
-    <br> nie wiem jak to naprawić</p> <br><br>
+<small style="color: blue">Tutaj na górze jest widok z listą wstawiony za pomocą include suitListDuplicate.jsp ,ale <br>
+    c:ForEach nie chce działać i jest puste i nie wiem jak to naprawić</small>
 
 <h2>Wybierz id garnituru do edycji</h2>
 
@@ -39,9 +39,10 @@
     <form:errors path="pComposition"/><br/>
     Category
     <form:select path="category.id" items="${categoryList}" itemLabel="name" itemValue="id"/>
-
+    <br>
+    <small style="color: blue">>--- Podczas edycji nie updatuje mi się kategoria w bazie</small>
     <br/><br/>
-    Zatwierdź zmiany
+    Zatwierdź zmiany <br>
     <input type="submit" value="Save" style="height:25px; width:150px; font-size:12px">    <form:errors path="*"/> <%--display all error messages associated with any fields.--%>
 
 

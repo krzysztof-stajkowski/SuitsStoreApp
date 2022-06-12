@@ -50,7 +50,6 @@ public class SuitsController {
             return "suitsAdd"; //do jsp, a formularz zostaje wypełniony i wystarczy skorygowac
         }
 
-        suits.setpName("Garnitur"); //ustawiam na twardo nazwę a reszta jest z formularza
         suits.setpAvailable(1); // 1 - dostępny na sprzedarz / na starcie jest 1. na zero można zmnienić w oddzielnej akcji
         suitsDao.save(suits);
         return "suitCrudSuccess"; //strona bazowa Suits z wyborem Crud
@@ -97,7 +96,7 @@ public class SuitsController {
     //-----------------------------
     @GetMapping("/delete")
     public String delete(Model model) {
-        model.addAttribute("suits", suitsDao.findAllByProductName("Garnitur")); //tylko garnitury
+        model.addAttribute("suits", suitsDao.ListAllByProductName("Garnitur")); //tylko garnitury
         return "suitsDel";
     }
 
@@ -114,10 +113,14 @@ public class SuitsController {
         return this.categoryDao.getList(); //pobieram listę z bazy categorii ale w Dao uszczupliłem select tylko do name
     }
 
+    @ModelAttribute("AtrybutSuits") //mapping do JSP
+    public Collection<Suits> findList() {
+        return this.suitsDao.findAllByProductName("Garnitur"); //pobieram listę z bazy głównej towarów które nie są garniturami
+    }
+
     @GetMapping("/list")
     public String list(Model model) {
-        //model.addAttribute("suitsList", suitsDao.getList()); //100% z listy
-        model.addAttribute("suitsList", suitsDao.findAllByProductName("Garnitur"));
+        model.addAttribute("suitsList", suitsDao.ListAllByProductName("Garnitur"));
         return "suitsList";
     }
 

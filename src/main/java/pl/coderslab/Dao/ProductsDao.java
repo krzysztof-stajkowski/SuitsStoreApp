@@ -58,10 +58,10 @@ public class ProductsDao {
                 .getResultList();
     }
 
-    public List<Productlist> findAllByProductNameExcept(String p_name) {
+    public List<Productlist> findAllByProductNameExcept(String name) { //Użyte w liście produktów
         return entityManager
-                .createQuery("select b from Suits b where NOT b.pName =:var")
-                .setParameter("var", p_name)
+                .createQuery("select b from Suits b where NOT b.productlist.name=:var")
+                .setParameter("var", name)
                 .getResultList();
     }
 

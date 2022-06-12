@@ -21,11 +21,6 @@
     <%-- JAK TO DZIAŁA [ nie można używać nazw tabel z bazy bo mogą być inne, tylko z modelu projektu  ]--%>
     <%-- JAK TO DZIAŁA [ ${AtrybutMarynarkiSpodnie} jest to taki klucz z metody w kontrolerze przy @ModelAttribute  ]--%>
 
-<%--    Name--%>
-<%--    <form:select itemLabel="name" itemValue="name"--%>
-<%--                 path="pName" items="${AtrybutMarynarkiSpodnie}"/>--%>
-<%--    <br/><br/> &lt;%&ndash; odwołanie do innej tabeli po relacji&ndash;%&gt;--%>
-
     Name
     <form:select itemLabel="name" itemValue="id"
                  path="productlist.id" items="${Atrybut}"/> <br/><br/>

@@ -10,8 +10,8 @@ public class Suits {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Size(max = 10) //to bedzie docelowo wybór z form select
-    private String pName;
+//    @Size(max = 10) //to bedzie docelowo wybór z form select
+//    private String pName;
 
     @Size(min = 8, max = 8, message = "Model musi mieć 8 znaków w formacie np. 25SS22BC")  // 25SS22BC -> 25 spring/summer 2022 Black
     private String pModel;
@@ -60,13 +60,13 @@ public class Suits {
         this.id = id;
     }
 
-    public String getpName() {
-        return pName;
-    }
-
-    public void setpName(String pName) {
-        this.pName = pName;
-    }
+//    public String getpName() {
+//        return pName;
+//    }
+//
+//    public void setpName(String pName) {
+//        this.pName = pName;
+//    }
 
     public String getpModel() {
         return pModel;

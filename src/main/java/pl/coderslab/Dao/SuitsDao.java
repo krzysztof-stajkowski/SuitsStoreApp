@@ -21,9 +21,6 @@ public class SuitsDao {
         entityManager.persist(suits);
     }
 
-    public Suits findById(long id) {
-        return entityManager.find(Suits.class, id);
-    }
 
     public void update(Suits suits) {
         entityManager.merge(suits);
@@ -33,8 +30,8 @@ public class SuitsDao {
         entityManager.remove(entityManager.contains(suits) ? suits : entityManager.merge(suits));
     }
 
-    public List getList() {
-        return entityManager.createQuery("select b from Suits b").getResultList();
+    public List getList() { //użyte do delete
+        return entityManager.createQuery("select b from Productlist b").getResultList();
     }
 
     //zapytanie JPQL
@@ -46,6 +43,10 @@ public class SuitsDao {
     }
 
     //-----------
+    public Suits findById(long id) {
+        return entityManager.find(Suits.class, id);
+    } //użyte do Delete
+
     public List<Suits> findAllBySuitsModel(String p_model) {
         return entityManager
                 .createQuery("select b from Suits b where b.pModel=:model")
@@ -60,12 +61,20 @@ public class SuitsDao {
                 .getResultList();
     }
 
-    public List<Suits> findAllByProductName(String pName) {
+    public List<Suits> findAllByProductName(String name) { //Użyte w selecie do dodawania garniturów
         return entityManager
-                .createQuery("select b from Suits b where b.pName=:var")
-                .setParameter("var", pName)
+                .createQuery("select b from Productlist b where b.name=:var")
+                .setParameter("var", name)
                 .getResultList();
     }
+
+    public List<Suits> ListAllByProductName(String name) { //Użyte w selecie do wyświetlania listy
+        return entityManager
+                .createQuery("select b from Suits b where b.productlist.name=:var")
+                .setParameter("var", name)
+                .getResultList();
+    }
+
 
 
     // FIND BY SIZE -> do wyszukiwarki
