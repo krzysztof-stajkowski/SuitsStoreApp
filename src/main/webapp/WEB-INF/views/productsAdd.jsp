@@ -7,6 +7,7 @@
     <title>SUITS PAGE</title>
 </head>
 <h3>Dodawanie towarów poza garniturami</h3>
+<p style="color: blue"> nie pokazują się komunikaty walidacji jak w garniturach  </p>
 <body>
 <form:form method="post"
            modelAttribute="products"> <%--Klucz z kontrolera add (linia 43) CZERWONY ALE JEST OK to inteliJ tak pokazuje--%>
