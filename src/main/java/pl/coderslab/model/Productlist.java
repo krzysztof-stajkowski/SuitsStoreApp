@@ -15,6 +15,10 @@ public class Productlist {
     @Size(max = 10)
     private String name;
 
+
+    @OneToMany (mappedBy = "productlist") //nie tworzymy kolejnej tabeli mapującej (aby mapowanie zadziałało muszą być getery i settery i relacje po obu stronach)
+    private List<Suits> suits = new ArrayList<>(); //gdy chcę pobrać listę unikatowych produktów
+
     public List<Suits> getSuits() {
         return suits;
     }
@@ -23,8 +27,6 @@ public class Productlist {
         this.suits = suits;
     }
 
-    @OneToMany (mappedBy = "productlist") //nie tworzymy kolejnej tabeli mapującej (aby mapowanie zadziałało muszą być getery i settery i relacje po obu stronach)
-    private List<Suits> suits = new ArrayList<>(); //gdy chcę pobrać listę unikatowych produktów
 
     public long getId() {
         return id;
@@ -42,12 +44,5 @@ public class Productlist {
         this.name = name;
     }
 
-    @Override
-    public String toString() {
-        return "Productlist{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", suits=" + suits +
-                '}';
-    }
+
 }

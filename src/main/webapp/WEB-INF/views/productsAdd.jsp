@@ -13,17 +13,22 @@
     <a href="<c:url value="/products"/>">Powrót </a>
     <br/><br/>  <%--adres do www CZERWONY ALE JEST OK to inteliJ tak pokazuje--%>
 
-   <form:hidden path="id"/>
+    <form:hidden path="id"/>
 
-<%-- JAK TO DZIAŁA [ itemLabel jest polem z encji (product_list) z której pobieramy co ma być wyświetolne w liście rozwijanej selecta ]  --%>
-<%-- JAK TO DZIAŁA [ itemValue jest polem z encji (product_list) z której pobieramy wartości do selecta ]  --%>
-<%-- JAK TO DZIAŁA [ path jest polem z encji (suits) do której będą wgrywane dane z formularza ]   --%>
-<%-- JAK TO DZIAŁA [ nie można używać nazw tabel z bazy bo mogą być inne, tylko z modelu projektu  ]--%>
-<%-- JAK TO DZIAŁA [ ${AtrybutMarynarkiSpodnie} jest to taki klucz z metody w kontrolerze przy @ModelAttribute  ]--%>
+    <%-- JAK TO DZIAŁA [ itemLabel jest polem z encji (product_list) z której pobieramy co ma być wyświetolne w liście rozwijanej selecta ]  --%>
+    <%-- JAK TO DZIAŁA [ itemValue jest polem z encji (product_list) z której pobieramy wartości do selecta ]  --%>
+    <%-- JAK TO DZIAŁA [ path jest polem z encji (suits) do której będą wgrywane dane z formularza ]   --%>
+    <%-- JAK TO DZIAŁA [ nie można używać nazw tabel z bazy bo mogą być inne, tylko z modelu projektu  ]--%>
+    <%-- JAK TO DZIAŁA [ ${AtrybutMarynarkiSpodnie} jest to taki klucz z metody w kontrolerze przy @ModelAttribute  ]--%>
+
+<%--    Name--%>
+<%--    <form:select itemLabel="name" itemValue="name"--%>
+<%--                 path="pName" items="${AtrybutMarynarkiSpodnie}"/>--%>
+<%--    <br/><br/> &lt;%&ndash; odwołanie do innej tabeli po relacji&ndash;%&gt;--%>
 
     Name
-    <form:select itemLabel="name" itemValue="name"
-                 path="pName" items="${AtrybutMarynarkiSpodnie}"/> <br/><br/> <%-- odwołanie do innej tabeli po relacji--%>
+    <form:select itemLabel="name" itemValue="id"
+                 path="productlist.id" items="${Atrybut}"/> <br/><br/>
 
     Model
     <form:input path="pModel"/> <br/>

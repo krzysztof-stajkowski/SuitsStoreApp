@@ -124,8 +124,13 @@ public class Suits {
     public Productlist getProductlist() {
         return productlist;
     }
-    public void setProductlist(Productlist productList) { //Dlaczego nie ustawiło się this jak w category?
-        this.productlist = productList;
+
+    public long getProductlistId(){ //dodałem ręcznie
+        return productlist.getId();
+    }
+
+    public void setProductlist(Productlist productlist) {
+        this.productlist = productlist;
     }
 
     public Matchtable getMatchtable() { //Dlaczego nie ustawiło się this jak w category?
@@ -136,20 +141,5 @@ public class Suits {
         this.matchtable = matchTable;
     }
 
-    @Override
-    public String toString() {
-        return "Suits{" +
-                "id=" + id +
-                ", pName='" + pName + '\'' +
-                ", pModel='" + pModel + '\'' +
-                ", pSize='" + pSize + '\'' +
-                ", pColor='" + pColor + '\'' +
-                ", pDescription='" + pDescription + '\'' +
-                ", pComposition='" + pComposition + '\'' +
-                ", pAvailable=" + pAvailable +
-                ", category=" + category +
-                ", Productlist=" + productlist +
-                ", matchTable=" + matchtable +
-                '}';
-    }
+
 }

@@ -77,11 +77,15 @@ public class ProductsController {
     public Collection<Category> categoryList() {
         return this.categoryDao.getList(); //pobieram listę z bazy categorii
     }
+    @ModelAttribute("Atrybut") //mapping do JSP
+    public Collection<Productlist> findList() {
+        return this.productListDao.getList(); //pobieram listę z bazy głównej towarów które nie są garniturami
+    }
 
-//    @ModelAttribute("AtrybutProductNameList") //mapping do JSP
-//    public Collection<Productlist> findAllByProductNameExcept() {
-//        return this.productsDao.findAllByProductNameExcept("Garnitur"); //pobieram listę z bazy głównej towarów które nie są garniturami
-//    }
+    @ModelAttribute("AtrybutProductNameList") //mapping do JSP
+    public Collection<Productlist> findAllByProductNameExcept() {
+        return this.productsDao.findAllByProductNameExcept("Garnitur"); //pobieram listę z bazy głównej towarów które nie są garniturami
+    }
 
     @ModelAttribute("AtrybutMarynarkiSpodnie") //mapping do JSP
     public Collection<Productlist> findListByProductNameExcept() {
