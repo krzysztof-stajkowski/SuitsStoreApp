@@ -12,9 +12,6 @@
 <jsp:include page="suitListDuplicate.jsp"></jsp:include>
 
 <body>
-<small style="color: blue">Tutaj na górze jest widok z listą wstawiony za pomocą include suitListDuplicate.jsp ,ale <br>
-    c:ForEach nie chce działać i jest puste i nie wiem jak to naprawić</small>
-
 <h2>Wybierz id garnituru do edycji</h2>
 
 <form:form method="post" modelAttribute="suits"> <%--Klucz z kontrolera CZERWONY ALE JEST OK to inteliJ tak pokazuje--%>
@@ -43,7 +40,7 @@
     <small style="color: blue">>--- Podczas edycji nie updatuje mi się kategoria w bazie</small>
     <br/><br/>
     Zatwierdź zmiany <br>
-    <input type="submit" value="Save" style="height:25px; width:150px; font-size:12px">    <form:errors path="*"/> <%--display all error messages associated with any fields.--%>
+    <input type="submit" value="Save" style="height:25px; width:150px; font-size:12px">
 
 
 </form:form>

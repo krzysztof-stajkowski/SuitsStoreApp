@@ -61,10 +61,18 @@ public class SuitsDao {
                 .getResultList();
     }
 
-    public List<Suits> findAllByProductName(String name) { //Użyte w selecie do dodawania garniturów
+    public List<Suits> findAllByProductName(String name) { //Użyte w selekcie do dodawania garniturów
         return entityManager
                 .createQuery("select b from Productlist b where b.name=:var")
                 .setParameter("var", name)
+                .getResultList();
+    }
+
+    public List<Suits> findAllByProductSize(String size,String name) { //Użyte w selekcie do dodawania garniturów
+        return entityManager
+                .createQuery("select b from Suits b where b.pSize=:var AND b.productlist.name=:var2")
+                .setParameter("var", size)
+                .setParameter("var2", name)
                 .getResultList();
     }
 

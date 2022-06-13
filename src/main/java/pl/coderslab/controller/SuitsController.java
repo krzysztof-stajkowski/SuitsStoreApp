@@ -58,6 +58,7 @@ public class SuitsController {
     @GetMapping
     @RequestMapping(value = "/edit")
     public String editSuits(Model model) { //trzeba zaimportować klasę Model
+        model.addAttribute("suitsList", suitsDao.ListAllByProductName("Garnitur"));
         model.addAttribute("suits", new Suits()); // klucz do jsp
         return "suitsEdit"; //link do jsp
     }
@@ -125,8 +126,8 @@ public class SuitsController {
     }
 
     @GetMapping("/listbysize")
-    public String list2(Model model) {
-        model.addAttribute("suitsListbysize", suitsDao.ListAllByProductName("Garnitur"));
+    public String list2(Model model) { //wykorzystanie dwóch zmiennych z dwóch tabel do filtrowania
+        model.addAttribute("suitsListbysize", suitsDao.findAllByProductSize("176/48", "Garnitur"));
         return "suitsFindModel";
     }
 
