@@ -142,6 +142,7 @@ public class SuitsController {
      * (Rozmiary te pobieram z bazy głównej ponieważ jeśli jakiegoś rozmiaru nie będzie to od razu wiadomo że garniturów nie ma i nie ma sensu listy wyświetlać)
      * Ostatecznie nie wychodziło mi przeniesienie wyniku do jsp finalnego i widziałem że Binding result jest szary.
      * Zamieniłem go po próbach/testach/i debugowaniu na Model który został utworzyny w pierwszej metodzie
+     * Usunąłem @Valid bo tu nie ma co sprawdzać
      * i zadziałało!
      */
 

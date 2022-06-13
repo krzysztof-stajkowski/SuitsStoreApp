@@ -13,15 +13,13 @@
     <a href="<c:url value="/"/>">Powrót </a> <br/><br/>  <%--adres do www CZERWONY ALE JEST OK to inteliJ tak pokazuje--%>
 
     <form:hidden path="id"/>
-<%-- Name w garniturach będzie zawsze Garnitur   --%>
+
     Wybierz rozmiar z listy<br/>
     <form:select itemLabel="pSize" itemValue="pSize"
                  path="pSize" items="${AtrybutSuitsSizes}"/> <br/><br/>
 
-
     <br/><br/>
-    Zatwierdź zmiany <br/>
-    <input type="submit" value="Save" style="height:25px; width:150px; font-size:12px">
+    <input type="submit" value="Szukaj" style="height:70px; width:150px; font-size:30px">
 
 
 </form:form>
