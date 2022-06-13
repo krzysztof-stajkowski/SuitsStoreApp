@@ -47,7 +47,7 @@ public class SuitsController {
     public String saveSuits(@Valid Suits suits, BindingResult result) { //trzeba zaimportować klasę Model
 
         if (result.hasErrors()) {
-            return "suitsAdd"; //do jsp, a formularz zostaje wypełniony i wystarczy skorygowac
+            return "suitsAdd"; //wraca do jsp, a formularz zostaje wypełniony i wystarczy skorygowac
         }
 
         suits.setpAvailable(1); // 1 - dostępny na sprzedarz / na starcie jest 1. na zero można zmnienić w oddzielnej akcji
@@ -132,11 +132,42 @@ public class SuitsController {
     }
 
     //-----------------
-    //MACZOWANIE
+    //WYSZUKIWANIE
+
     /**
-     * Maczowanie marynarek i spodni z tego samego modelu do pełnego garnituru /zdejmowanie ze stanu i wstawianie jako garnitur
-     * Będzie można maczować spodnie z marynarką ale nie można rozparowac garnituru
+     * Jak to zrobiłem:
+     * Przekopiowałem rozwiązanie z dodawania garniturów do bazy aby mieć fundament i strukturę
+     * Ustawiłem poniższe 3 metody w takiej kolejności jak są wywoływane 1.Get 2. JSP 3.POST
+     * Modyfikując rozwiązanie pobierania wartości z kolumny z tabeli do selecta (Category) utworzyłem metodę w Dao która pobiera tylko rozmiawy
+     * (Rozmiary te pobieram z bazy głównej ponieważ jeśli jakiegoś rozmiaru nie będzie to od razu wiadomo że garniturów nie ma i nie ma sensu listy wyświetlać)
+     * Ostatecznie nie wychodziło mi przeniesienie wyniku do jsp finalnego i widziałem że Binding result jest szary.
+     * Zamieniłem go po próbach/testach/i debugowaniu na Model który został utworzyny w pierwszej metodzie
+     * i zadziałało!
      */
+
+    @GetMapping
+    @RequestMapping(value = "/search")
+    public String searchSuits(Model model) { //trzeba zaimportować klasę Model
+        model.addAttribute("suitsSearch", new Suits()); // klucz do jsp
+        return "suitsSearch"; //link do jsp który pobiera dane z poniższej metody z atrybutem AtrybutSuitsSizes
+    }
+
+    @ModelAttribute("AtrybutSuitsSizes") //mapping do JSP
+    public Collection<Suits> findListSizes() {
+        return this.suitsDao.getSizes("Garnitur"); //pobieram listę z bazy głównej z samymi rozmiarami /posortowaną
+            //JAK POBRAĆ UNIKATY TYLKO? - DISTINCT NIE DZIAŁA W TEJ FORMIE
+    }
+
+    @RequestMapping(value = "/search", method = RequestMethod.POST)
+    public String searchSuits( Suits suits,Model model) { //trzeba zaimportować klasę Model
+
+        String selectedSize = suits.getpSize();
+        model.addAttribute("SizesList", suitsDao.ListAllSuitsBySize(selectedSize,1));
+
+        return "suitsFindModel"; //strona bazowa Suits z wyborem Crud
+    }
+
+//--------------------
 
 
 }

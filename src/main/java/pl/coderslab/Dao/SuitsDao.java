@@ -34,33 +34,11 @@ public class SuitsDao {
         return entityManager.createQuery("select b from Productlist b").getResultList();
     }
 
-    //zapytanie JPQL
-    public List findAllByCategory(int category) {
-        return entityManager
-                .createQuery("select b from Suits b where b.category=:cat")
-                .setParameter("cat", category)
-                .getResultList();
-    }
-
+    //zapytania JPQL
     //-----------
     public Suits findById(long id) {
         return entityManager.find(Suits.class, id);
     } //użyte do Delete
-
-    public List<Suits> findAllBySuitsModel(String p_model) {
-        return entityManager
-                .createQuery("select b from Suits b where b.pModel=:model")
-                .setParameter("model", p_model)
-                .getResultList();
-    }
-
-    public List<Suits> findProductId(String name) {
-        return entityManager
-                .createQuery("select b from Productlist b where b.name=:name")
-                .setParameter("name", name)
-                .getResultList();
-    }
-
     public List<Suits> findAllByProductName(String name) { //Użyte w selekcie do dodawania garniturów
         return entityManager
                 .createQuery("select b from Productlist b where b.name=:var")
@@ -83,9 +61,19 @@ public class SuitsDao {
                 .getResultList();
     }
 
+    public List getSizes(String name) { //listy rozwijanej w szukaniu modeli po rozmiarze
+        return entityManager
+                .createQuery("select b from Suits b WHERE b.productlist.name=:var ORDER BY b.pSize")
+                .setParameter("var", name)
+                .getResultList();
+    }
 
-
-    // FIND BY SIZE -> do wyszukiwarki
-    // FIND BY SIZE && MODEL -> do maczowania
+    public List<Suits> ListAllSuitsBySize(String size, long id) { //Użyte w selekcie do wyświetlania listy
+        return entityManager
+                .createQuery("select b from Suits b where b.pSize=:var AND b.productlist.id=:var2")
+                .setParameter("var", size)
+                .setParameter("var2", id)
+                .getResultList();
+    }
 
 }

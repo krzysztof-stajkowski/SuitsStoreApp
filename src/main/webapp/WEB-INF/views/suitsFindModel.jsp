@@ -23,17 +23,11 @@
         <th>Composition</th>
         <th>Available</th>
     </tr>
-    <a href="<c:url value="/suits"/>">Powrót</a> <br/><br/>  <%--adres do www CZERWONY ALE JEST OK to inteliJ tak pokazuje--%>
+    <a href="<c:url value="/suits/search"/>">Powrót</a> <br/><br/>  <%--adres do www CZERWONY ALE JEST OK to inteliJ tak pokazuje--%>
     </thead>
     <tbody>
 
-    TUTAJ POWINIEN BYĆ SELECT Z DOSTĘPNĄ ROZMIARÓWKĄ Z TABELI SUITS<br/>
-    PO WYBRANIU ROZMIARU Z LISTY POWINNA SIĘ LIVE POKAZAĆ TABELA<br/>
-    Z MODELAMI GARNITURÓW W TYM ROZMIARZE<br/><br/>
-
-
-
-    <c:forEach items="${suitsListbysize}" var="suit">
+    <c:forEach items="${SizesList}" var="suit">
         <tr>
             <td>${suit.id}</td>
             <td>${suit.productlist.name}</td>

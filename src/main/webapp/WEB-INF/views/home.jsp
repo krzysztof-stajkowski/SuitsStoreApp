@@ -18,7 +18,7 @@
     <a href="match">GO-></a>
     <h3>SZUKANIE GARNITURÓW</h3>
     <p><i>Wyświetlanie listy dostępnych na stanie garniturów po modelu</i></p>
-    <a href="suits/listbysize">GO-></a>
+    <a href="suits/search">GO-></a>
 </div>
 </body>
 </html>
