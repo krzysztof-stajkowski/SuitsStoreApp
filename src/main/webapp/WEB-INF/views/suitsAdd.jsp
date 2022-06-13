@@ -20,19 +20,19 @@
 
     Model
     <form:input path="pModel"/> <br/>
-    <form:errors path="pModel"/><br/>
+    <form:errors path="pModel"/><br/><br/>
     Size
     <form:input path="pSize"/> <br/>
-    <form:errors path="pSize"/><br/>
+    <form:errors path="pSize"/><br/><br/>
     Color
     <form:input path="pColor"/> <br/>
-    <form:errors path="pColor"/><br/>
+    <form:errors path="pColor"/><br/><br/>
     Description
     <form:textarea path="pDescription"/> <br/>
-    <form:errors path="pDescription"/><br/>
+    <form:errors path="pDescription"/><br/><br/>
     Composition
     <form:input path="pComposition"/> <br/>
-    <form:errors path="pComposition"/><br/>
+    <form:errors path="pComposition"/><br/><br/>
     Category
     <form:select itemLabel="name" itemValue="id"
                  path="category.id" items="${categoryList}"/>  <%-- odwołanie do innej tabeli po relacji--%>

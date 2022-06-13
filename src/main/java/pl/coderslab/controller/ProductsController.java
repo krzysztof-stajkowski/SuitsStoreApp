@@ -40,7 +40,7 @@ public class ProductsController {
     @GetMapping
     @RequestMapping(value = "/add")
     public String saveSuits(Model model) { //trzeba zaimportować klasę Model
-        model.addAttribute("suits", new Suits()); // klucz do jsp
+        model.addAttribute("suits", new Suits()); // klucz do jsp - aby to działało w produktach musi być również nazwa suits nie products
         return "productsAdd"; //link do jsp
     }
 
@@ -60,13 +60,13 @@ public class ProductsController {
     //-----------------------------
     @GetMapping("/delete")
     public String delete(Model model) {
-        model.addAttribute("products", suitsDao.getList()); //tu musi być FILTR!!!!!!!!!!!!!!!
+        model.addAttribute("products", productsDao.findAllByProductNameExcept("Garnitur")); //tu musi być FILTR!!!!!!!!!!!!!!!
         return "productsDel";
     }
 
     @GetMapping("/delete/{id}")  //na podstawie book z zajęć warjee29sh
     public String delete(@PathVariable long id) {
-        Suits suitsDelId = suitsDao.findById(id);
+        Suits suitsDelId = productsDao.findById(id);
         suitsDao.delete(suitsDelId);
         return "redirect:/products/delete";
     }

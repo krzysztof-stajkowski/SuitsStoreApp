@@ -7,7 +7,7 @@
     <title>SUITS PAGE</title>
 </head>
 <h3>Dodawanie towarów poza garniturami</h3>
-<p style="color: blue"> nie pokazują się komunikaty walidacji jak w garniturach  </p>
+
 <body>
 <form:form method="post"
            modelAttribute="suits"> <%--Klucz z kontrolera add (linia 43) CZERWONY ALE JEST OK to inteliJ tak pokazuje--%>
@@ -28,19 +28,19 @@
 
     Model
     <form:input path="pModel"/> <br/>
-    <form:errors path="pModel"/><br/>
+    <form:errors path="pModel"/><br/><br/>
     Size
     <form:input path="pSize"/> <br/>
-    <form:errors path="pSize"/><br/>
+    <form:errors path="pSize"/><br/><br/>
     Color
     <form:input path="pColor"/> <br/>
-    <form:errors path="pColor"/><br/>
+    <form:errors path="pColor"/><br/><br/>
     Description
     <form:textarea path="pDescription"/> <br/>
-    <form:errors path="pDescription"/><br/>
+    <form:errors path="pDescription"/><br/><br/>
     Composition
     <form:input path="pComposition"/> <br/>
-    <form:errors path="pComposition"/><br/>
+    <form:errors path="pComposition"/><br/><br/>
     Category
     <form:select itemLabel="name" itemValue="id"
                  path="category.id" items="${AtrybutCategoryList}"/>  <%-- odwołanie do innej tabeli po relacji--%>
