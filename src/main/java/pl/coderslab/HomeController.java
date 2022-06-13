@@ -30,5 +30,9 @@ public class HomeController {
     public String findSuitByModel() {
         return "/suits/listbysize"; } //JSP
 
+    @GetMapping("/match") // WWW tu trzeba ustawić stronę po starcie aby przeszło do pierwszego widoku
+    public String productMatcher() {
+        return "matcher"; } //JSP
+
 }
 

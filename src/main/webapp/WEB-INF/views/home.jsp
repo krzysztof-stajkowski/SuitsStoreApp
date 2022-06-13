@@ -13,8 +13,8 @@
     <h3>ZARZĄDZANIE INNYMI UBIORAMI</h3>
     <p><i>Dodawanie, edycja i kasowanie innych towarów</i></p>
     <a href="products">GO-></a><br><br>
-    <h3>PAROWANIE GARNITURÓW</h3>
-    <p><i>Mechanizm parowania spodni i marynarek tego samego modelu</i></p>
+    <h3 style="color: dimgrey">PAROWANIE GARNITURÓW</h3>
+    <p style="color: dimgrey"><i>Mechanizm parowania spodni i marynarek tego samego modelu</i></p>
     <a href="match">GO-></a>
     <h3>SZUKANIE GARNITURÓW</h3>
     <p><i>Wyświetlanie listy dostępnych na stanie garniturów po modelu</i></p>
