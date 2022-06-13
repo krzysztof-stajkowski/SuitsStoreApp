@@ -10,7 +10,7 @@
 <p style="color: blue"> nie pokazują się komunikaty walidacji jak w garniturach  </p>
 <body>
 <form:form method="post"
-           modelAttribute="products"> <%--Klucz z kontrolera add (linia 43) CZERWONY ALE JEST OK to inteliJ tak pokazuje--%>
+           modelAttribute="suits"> <%--Klucz z kontrolera add (linia 43) CZERWONY ALE JEST OK to inteliJ tak pokazuje--%>
     <a href="<c:url value="/products"/>">Powrót </a>
     <br/><br/>  <%--adres do www CZERWONY ALE JEST OK to inteliJ tak pokazuje--%>
 

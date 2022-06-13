@@ -40,7 +40,7 @@ public class ProductsController {
     @GetMapping
     @RequestMapping(value = "/add")
     public String saveSuits(Model model) { //trzeba zaimportować klasę Model
-        model.addAttribute("products", new Suits()); // klucz do jsp
+        model.addAttribute("suits", new Suits()); // klucz do jsp
         return "productsAdd"; //link do jsp
     }
 
