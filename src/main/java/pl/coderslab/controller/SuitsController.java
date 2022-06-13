@@ -124,10 +124,10 @@ public class SuitsController {
         return "suitsList";
     }
 
-    @GetMapping("/listbymodel")
+    @GetMapping("/listbysize")
     public String list2(Model model) {
-        model.addAttribute("suitsListbymodel", suitsDao.ListAllByProductName("Garnitur"));
-        return "findModel";
+        model.addAttribute("suitsListbysize", suitsDao.ListAllByProductName("Garnitur"));
+        return "suitsFindModel";
     }
 
     //-----------------

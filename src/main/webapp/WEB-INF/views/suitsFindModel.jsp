@@ -7,7 +7,7 @@
 <head>
     <title>ZNAJDZ GARNITURY</title>
 </head>
-<h3>Lista garniturów wg modelu</h3>
+<h3>Lista garniturów wg rozmiaru</h3>
 <body>
 
 <table>
@@ -26,7 +26,14 @@
     <a href="<c:url value="/suits"/>">Powrót</a> <br/><br/>  <%--adres do www CZERWONY ALE JEST OK to inteliJ tak pokazuje--%>
     </thead>
     <tbody>
-    <c:forEach items="${suitsListbymodel}" var="suit">
+
+    TUTAJ POWINIEN BYĆ SELECT Z DOSTĘPNĄ ROZMIARÓWKĄ Z TABELI SUITS<br/>
+    PO WYBRANIU ROZMIARU Z LISTY POWINNA SIĘ LIVE POKAZAĆ TABELA<br/>
+    Z MODELAMI GARNITURÓW W TYM ROZMIARZE<br/><br/>
+
+
+
+    <c:forEach items="${suitsListbysize}" var="suit">
         <tr>
             <td>${suit.id}</td>
             <td>${suit.productlist.name}</td>

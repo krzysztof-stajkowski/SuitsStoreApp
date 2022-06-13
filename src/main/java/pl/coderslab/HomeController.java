@@ -28,7 +28,7 @@ public class HomeController {
 
     @GetMapping("/findmodel") // WWW tu trzeba ustawić stronę po starcie aby przeszło do pierwszego widoku
     public String findSuitByModel() {
-        return "/suits/listbymodel"; } //JSP
+        return "/suits/listbysize"; } //JSP
 
 }
 
