@@ -79,7 +79,7 @@ public class ProductsController {
     }
 
     @ModelAttribute("Atrybut") //mapping do JSP
-    public Collection<Productlist> findList() {
+    public Collection<Productlist> findList() { //Użyte w ProductAdd do select po nazwach
         return this.productListDao.getListExceptSuits(1); //pobieram listę z bazy głównej towarów które nie są garniturami
     }
 

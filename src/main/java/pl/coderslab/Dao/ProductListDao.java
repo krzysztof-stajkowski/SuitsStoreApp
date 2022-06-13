@@ -27,7 +27,7 @@ public class ProductListDao { // ta klasa służy do przyszłego Crud tabeli z l
         entityManager.merge(productList);
     }
 
-    public List<Productlist> getListExceptSuits(long id) {
+    public List<Productlist> getListExceptSuits(long id) { //Użyte w ProductAdd do select po nazwach
         return entityManager
                 .createQuery("select b from Productlist b where not b.id=:pos")
                 .setParameter("pos", id)
