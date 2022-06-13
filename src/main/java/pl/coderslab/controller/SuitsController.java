@@ -124,6 +124,12 @@ public class SuitsController {
         return "suitsList";
     }
 
+    @GetMapping("/listbymodel")
+    public String list2(Model model) {
+        model.addAttribute("suitsListbymodel", suitsDao.ListAllByProductName("Garnitur"));
+        return "findModel";
+    }
+
     //-----------------
     //MACZOWANIE
     /**
