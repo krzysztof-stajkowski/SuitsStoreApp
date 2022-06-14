@@ -20,19 +20,19 @@
 
     Model<br/>
     <form:input cssStyle="width: 200" path="pModel"/> <br/>
-    <form:errors path="pModel"/><br/><br/>
+    <form:errors cssStyle="margin: 30px; color: crimson; font-size: 13px; font-style: italic" path="pModel"/><br/><br/>
     Rozmiar<br/>
     <form:input cssStyle="width: 200" path="pSize"/> <br/>
-    <form:errors path="pSize"/><br/><br/>
+     <form:errors cssStyle="margin: 30px; color: crimson; font-size: 13px; font-style: italic"  path="pSize"/><br/><br/>
     Kolor<br/>
     <form:input cssStyle="width: 200" path="pColor"/> <br/>
-    <form:errors path="pColor"/><br/><br/>
+     <form:errors cssStyle="margin: 30px; color: crimson; font-size: 13px; font-style: italic"  path="pColor"/><br/><br/>
     Opis<br/>
     <form:textarea cssStyle="width: 200" path="pDescription"/> <br/>
-    <form:errors path="pDescription"/><br/><br/>
+     <form:errors cssStyle="margin: 30px; color: crimson; font-size: 13px; font-style: italic"  path="pDescription"/><br/><br/>
     Skład<br/>
     <form:input cssStyle="width: 200" path="pComposition"/> <br/>
-    <form:errors path="pComposition"/><br/><br/>
+     <form:errors cssStyle="margin: 30px; color: crimson; font-size: 13px; font-style: italic"  path="pComposition"/><br/><br/>
     Kategoria<br/>
     <form:select cssStyle="width: 200" itemLabel="name" itemValue="id"
                  path="category.id" items="${categoryList}"/>  <%-- odwołanie do innej tabeli po relacji--%>
