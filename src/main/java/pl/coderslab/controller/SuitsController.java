@@ -121,13 +121,15 @@ public class SuitsController {
 
     @GetMapping("/list")
     public String list(Model model) {
-        model.addAttribute("suitsList", suitsDao.ListAllByProductName("Garnitur"));
+        model.addAttribute("suitsList",
+                suitsDao.ListAllByProductName("Garnitur"));
         return "suitsList";
     }
 
     @GetMapping("/listbysize")
     public String list2(Model model) { //wykorzystanie dwóch zmiennych z dwóch tabel do filtrowania
-        model.addAttribute("suitsListbysize", suitsDao.findAllByProductSize("176/48", "Garnitur"));
+        model.addAttribute("suitsListbysize",
+                suitsDao.findAllByProductSize("176/48", "Garnitur"));
         return "suitsFindModel";
     }
 

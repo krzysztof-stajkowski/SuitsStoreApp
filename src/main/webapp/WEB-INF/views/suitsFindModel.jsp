@@ -7,21 +7,20 @@
 <head>
     <title>ZNAJDZ GARNITURY</title>
 </head>
-<h3>Lista garniturów wg rozmiaru</h3>
+<h1 style="text-align:center;">Lista garniturów wg rozmiaru</h1>
 <body>
-
+<jsp:include page="Tablelayout.jsp"></jsp:include>
 <table>
     <thead>
     <tr>
-        <th>Id</th>
-        <th>Name</th>
+        <th>Pozycja</th>
+        <th>Nazwa</th>
         <th>Model</th>
-        <th>Size</th>
-        <th>Category</th>
-        <th>Color</th>
-        <th>Description</th>
-        <th>Composition</th>
-        <th>Available</th>
+        <th>Rozmiar</th>
+        <th>Kategoria</th>
+        <th>Kolor</th>
+        <th>Opis</th>
+        <th>Skład</th>
     </tr>
     <a href="<c:url value="/suits/search"/>">Powrót</a> <br/><br/>  <%--adres do www CZERWONY ALE JEST OK to inteliJ tak pokazuje--%>
     </thead>

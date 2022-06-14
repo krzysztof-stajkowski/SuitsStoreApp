@@ -6,7 +6,7 @@
     <title>Inne towary</title>
 </head>
 <body>
-<h1>Wybór opcji do zarządzania innymi towarami </h1>
+<h1 style="text-align:center;">Wybór opcji do zarządzania innymi towarami </h1>
 
 <a href="/">Powrót do strony głównej</a> <br><br><br><br>
 <p><Small><i> Nie dotyczy garniturów </i></Small></p>

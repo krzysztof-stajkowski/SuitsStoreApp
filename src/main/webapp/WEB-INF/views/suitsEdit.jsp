@@ -7,42 +7,45 @@
 <head>
     <title>SUITS PAGE</title>
 </head>
-<h3>Edycja garniturów</h3>
+<h1 style="text-align:center;">Edycja garniturów</h1>
 <a href="<c:url value="/suits"/>">Powrót</a> <br/><br/>  <%--adres do www CZERWONY ALE JEST OK to inteliJ tak pokazuje--%>
-<jsp:include page="suitListDuplicate.jsp"></jsp:include>
-
 <body>
 <h2>Wybierz id garnituru do edycji</h2>
+<%--Pomysły stylowania z https://www.w3schools.com/html--%>
+
 
 <form:form method="post" modelAttribute="suits"> <%--Klucz z kontrolera CZERWONY ALE JEST OK to inteliJ tak pokazuje--%>
 
-    Suit id
-    <form:input path="id"/> <br/>
+    Wybierz id garnituru do edycji<br/>
+    <form:input path="id"/> <br/><br/>
 
-    Model
-    <form:input path="pModel"/> <br/>
+    Nowy model<br/>
+    <form:input cssStyle="width: 200" path="pModel"/> <br/>
     <form:errors path="pModel"/><br/>
-    Size
-    <form:input path="pSize"/> <br/>
+    Nowy rozmiar<br/>
+    <form:input cssStyle="width: 200" path="pSize"/> <br/>
     <form:errors path="pSize"/><br/>
-    Color
-    <form:input path="pColor"/> <br/>
+    Nowy kolor<br/>
+    <form:input cssStyle="width: 200" path="pColor"/> <br/>
     <form:errors path="pColor"/><br/>
-    Description
-    <form:textarea path="pDescription"/> <br/>
+    Nowy opis<br/>
+    <form:textarea cssStyle="width: 200" path="pDescription"/> <br/>
     <form:errors path="pDescription"/><br/>
-    Composition
-    <form:input path="pComposition"/> <br/>
+    Nowy skład<br/>
+    <form:input cssStyle="width: 200" path="pComposition"/> <br/>
     <form:errors path="pComposition"/><br/>
-    Category
-    <form:select path="category.id" items="${categoryList}" itemLabel="name" itemValue="id"/>
+    Nowa kategoria<br/>
+    <form:select cssStyle="width: 200" path="category.id" items="${categoryList}" itemLabel="name" itemValue="id"/>
     <br>
     <small style="color: blue">>--- Podczas edycji nie updatuje mi się kategoria w bazie</small>
     <br/><br/>
     Zatwierdź zmiany <br>
-    <input type="submit" value="Save" style="height:25px; width:150px; font-size:12px">
-
+    <input type="submit" value="Save" style="background-color: darkolivegreen;  height:50px; width:200px; font-size:16px ; color: azure">
 
 </form:form>
+<h1>Lista dostępnych pozycji do edycji</h1>
+
+<jsp:include page="suitListDuplicate.jsp"></jsp:include>
+
 </body>
 </html>

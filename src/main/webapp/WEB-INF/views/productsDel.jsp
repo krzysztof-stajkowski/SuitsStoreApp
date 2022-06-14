@@ -7,21 +7,24 @@
 <head>
     <title>SUITS PAGE</title>
 </head>
-<h3>Usuwanie towarów</h3>
-<body>
 
+
+<h1 style="text-align:center;">Usuwanie towarów</h1>
+<body>
+<jsp:include page="Tablelayout.jsp"></jsp:include>
 <table>
     <thead>
     <tr>
-        <th>Position</th>
-        <th>Name</th>
+        <th>Pozycja</th>
+        <th>Nazwa</th>
         <th>Model</th>
-        <th>Size</th>
-        <th>Category</th>
-        <th>Color</th>
-        <th>Description</th>
-        <th>Composition</th>
-        <th>Available</th>
+        <th>Rozmiar</th>
+        <th>Kategoria</th>
+        <th>Kolor</th>
+        <th>Opis</th>
+        <th>Skład</th>
+        <th>Dostępne 1/0</th>
+        <th>Usuń</th>
     </tr>
     <a href="<c:url value="/products"/>">Powrót </a> <br/><br/>  <%--adres do www CZERWONY ALE JEST OK to inteliJ tak pokazuje--%>
     </thead>

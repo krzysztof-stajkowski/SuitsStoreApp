@@ -6,7 +6,7 @@
 <head>
     <title>SUITS PAGE</title>
 </head>
-<h3>Dodawanie towarów poza garniturami</h3>
+<h1 style="text-align:center;">Dodawanie towarów poza garniturami</h1>
 
 <body>
 <form:form method="post"
@@ -22,32 +22,33 @@
     <%-- JAK TO DZIAŁA [ nie można używać nazw tabel z bazy bo mogą być inne, tylko z modelu projektu  ]--%>
     <%-- JAK TO DZIAŁA [ ${AtrybutMarynarkiSpodnie} jest to taki klucz z metody w kontrolerze przy @ModelAttribute  ]--%>
 
-    Name
-    <form:select itemLabel="name" itemValue="id"
+    Nazwa<br/>
+    <form:select cssStyle="width: 200" itemLabel="name" itemValue="id"
                  path="productlist.id" items="${Atrybut}"/> <br/><br/>
 
-    Model
-    <form:input path="pModel"/> <br/>
+    Model<br/>
+    <form:input cssStyle="width: 200" path="pModel"/> <br/>
     <form:errors path="pModel"/><br/><br/>
-    Size
-    <form:input path="pSize"/> <br/>
+    Rozmiar<br/>
+    <form:input cssStyle="width: 200" path="pSize"/> <br/>
     <form:errors path="pSize"/><br/><br/>
-    Color
-    <form:input path="pColor"/> <br/>
+    Kolor<br/>
+    <form:input cssStyle="width: 200" path="pColor"/> <br/>
     <form:errors path="pColor"/><br/><br/>
-    Description
-    <form:textarea path="pDescription"/> <br/>
+    Opis<br/>
+    <form:textarea cssStyle="width: 200" path="pDescription"/> <br/>
     <form:errors path="pDescription"/><br/><br/>
-    Composition
-    <form:input path="pComposition"/> <br/>
+    Skład<br/>
+    <form:input cssStyle="width: 200" path="pComposition"/> <br/>
     <form:errors path="pComposition"/><br/><br/>
-    Category
-    <form:select itemLabel="name" itemValue="id"
+    Kategoria<br/>
+    <form:select cssStyle="width: 200" itemLabel="name" itemValue="id"
                  path="category.id" items="${AtrybutCategoryList}"/>  <%-- odwołanie do innej tabeli po relacji--%>
 
     <br/><br/>
     Zatwierdź zmiany <br/>
-    <input type="submit" value="Save" style="height:25px; width:150px; font-size:12px">
+    <input type="submit" value="Save" style="background-color: darkolivegreen;  height:50px; width:200px; font-size:16px ; color: azure">
+
 
 
 </form:form>

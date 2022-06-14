@@ -3,18 +3,18 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<jsp:include page="Tablelayout.jsp"></jsp:include>
 <table>
     <thead>
     <tr>
-        <th>Id</th>
-        <th>Name</th>
+        <th>Pozycja</th>
+        <th>Nazwa</th>
         <th>Model</th>
-        <th>Size</th>
-        <th>Category</th>
-        <th>Color</th>
-        <th>Description</th>
-        <th>Composition</th>
-        <th>Available</th>
+        <th>Rozmiar</th>
+        <th>Kategoria</th>
+        <th>Kolor</th>
+        <th>Opis</th>
+        <th>Skład</th>
     </tr>
     </thead>
     <tbody>

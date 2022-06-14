@@ -6,7 +6,7 @@
     <title>Zarządzanie garniturami</title>
 </head>
 <body>
-<h1>Zmiana dokonana pomyślnie</h1>
+<h1 style="text-align:center;">Zmiana dokonana pomyślnie</h1>
 
 <a href="/">Powrót do strony głównej</a> <br><br><br><br>
 
