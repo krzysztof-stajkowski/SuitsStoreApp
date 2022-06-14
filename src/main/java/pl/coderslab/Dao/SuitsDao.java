@@ -63,14 +63,16 @@ public class SuitsDao {
 
     public List getSizes(String name) { //listy rozwijanej w szukaniu modeli po rozmiarze w jsp suitsSearch
         return entityManager
-                .createQuery("select b from Suits b WHERE b.productlist.name=:var ORDER BY b.pSize")
+                .createQuery("select distinct b.pSize from Suits b " +
+                        "WHERE b.productlist.name=:var " +
+                        "ORDER BY b.pSize")
                 .setParameter("var", name)
                 .getResultList();
     }
 
     public List<Suits> ListAllSuitsBySize(String size, long id) { //Lista wynikowa już po wybraniu rozmiaru z dropdowna w jsp suitsFindByModel
         return entityManager
-                .createQuery("select b from Suits b where b.pSize=:var AND b.productlist.id=:var2")
+                .createQuery("select  b from Suits b where b.pSize=:var AND b.productlist.id=:var2")
                 .setParameter("var", size)
                 .setParameter("var2", id)
                 .getResultList();

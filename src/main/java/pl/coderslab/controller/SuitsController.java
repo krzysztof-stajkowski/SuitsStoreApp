@@ -151,6 +151,13 @@ public class SuitsController {
     public String searchSuits(Model model) { //trzeba zaimportować klasę Model
         model.addAttribute("suitsSearch", new Suits()); // klucz do jsp
         return "suitsSearch"; //link do jsp który pobiera dane z poniższej metody z atrybutem AtrybutSuitsSizes
+
+        /**
+         * Uwaga! Aby zadziałał Distinct i wyświetliła się lista rozwijana przez jsp należało usunąć z jsp
+         * itemLabel="pSize"   itemValue="pSize"
+         * i zostawić sam path i model attribute
+         */
+
     }
 
     @ModelAttribute("AtrybutSuitsSizes") //mapping do JSP
