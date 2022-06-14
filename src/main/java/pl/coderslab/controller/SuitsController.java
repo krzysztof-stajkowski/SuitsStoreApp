@@ -80,15 +80,13 @@ public class SuitsController {
 
         Category catNameEdit = categoryDao.findById(suits.getCategoryId());
 
+        /**testy*/
         System.out.println("Nowy wpis id " + catNameEdit.getId());
         System.out.println("Stary wpis id " + oldSuit.getCategory().getId());
-
         System.out.println("Nowy wpis name " + catNameEdit.getName());
         System.out.println("Stary wpis name " + oldSuit.getCategory().getName());
 
-        //Testy poniższe linie zwracają błędy
-//        oldSuit.getCategory().setId(catNameEdit.getId());
-//        oldSuit.getCategory().setName(catNameEdit.getName());
+        //nie moge zmieć relacji kategorii podczas eycji
 
         suitsDao.update(oldSuit);
         return "suitCrudSuccess";

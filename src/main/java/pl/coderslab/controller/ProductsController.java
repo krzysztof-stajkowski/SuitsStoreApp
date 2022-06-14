@@ -56,6 +56,43 @@ public class ProductsController {
         return "prodCrudSuccess"; //strona bazowa Suits z wyborem Crud
     }
 
+    @GetMapping
+    @RequestMapping(value = "/edit")
+    public String editProd(Model model) { //trzeba zaimportować klasę Model
+        model.addAttribute("productNameList", productsDao.findAllByProductNameExcept("Garnitur")); //atrybut do productListDuplicate.jsp
+        model.addAttribute("suits", new Suits()); // klucz do jsp - musi być klucz PRODUCTS bo inaczej jest błąd bindowania
+        return "productsEdit"; //link do jsp
+    }
+
+    @RequestMapping(value = "/edit", method = RequestMethod.POST)
+    public String editProd(@Valid Suits suits, BindingResult result) {
+
+        if (result.hasErrors()) {
+            return "productsEdit"; //do jsp, a formularz zostaje wypełniony i wystarczy skorygowac
+        }
+
+        Suits oldSuit = suitsDao.findById(suits.getId());
+        oldSuit.setpAvailable(oldSuit.getpAvailable());
+        oldSuit.setpModel(suits.getpModel());
+        oldSuit.setpSize(suits.getpSize());
+        oldSuit.setpColor(suits.getpColor());
+        oldSuit.setpComposition(suits.getpComposition());
+        oldSuit.setpDescription(suits.getpDescription());
+
+        Category catNameEdit = categoryDao.findById(suits.getCategoryId());
+
+        /**testy*/
+        System.out.println("Nowy wpis id " + catNameEdit.getId());
+        System.out.println("Stary wpis id " + oldSuit.getCategory().getId());
+        System.out.println("Nowy wpis name " + catNameEdit.getName());
+        System.out.println("Stary wpis name " + oldSuit.getCategory().getName());
+
+        //nie moge zmieć relacji kategorii podczas eycji
+
+        suitsDao.update(oldSuit);
+        return "productsCrudSuccess";
+    }
+
 
     //-----------------------------
     @GetMapping("/delete")

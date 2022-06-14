@@ -17,10 +17,8 @@ public class SuitsDao {
 
 
     public void save(Suits suits) {
-
         entityManager.persist(suits);
     }
-
 
     public void update(Suits suits) {
         entityManager.merge(suits);
@@ -39,6 +37,7 @@ public class SuitsDao {
     public Suits findById(long id) {
         return entityManager.find(Suits.class, id);
     } //użyte do Delete
+
     public List<Suits> findAllByProductName(String name) { //Użyte w selekcie do dodawania garniturów
         return entityManager
                 .createQuery("select b from Productlist b where b.name=:var")
@@ -77,5 +76,4 @@ public class SuitsDao {
                 .setParameter("var2", id)
                 .getResultList();
     }
-
 }

@@ -10,7 +10,7 @@
 
 <a href="/">Powrót do strony głównej</a> <br><br><br><br>
 
-<h1>Przejdż do -> </h1>
+<h2>Przejdż do -> </h2>
 <ul>
     <li><a href="/products/add">Dodawanie towarów.</a> <br><br></li>
     <li><a href="/products/edit">Edycja towarów.</a> <br><br></li>
