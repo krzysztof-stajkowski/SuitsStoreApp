@@ -20,7 +20,7 @@
                  path="pSize" items="${AtrybutSuitsSizes}"/> <br/><br/>
 
     <br/><br/>
-    <input type="submit" value="Save" style="background-color: darkolivegreen;  height:50px; width:200px; font-size:16px ; color: azure">
+    <input type="submit" value="Pokaż listę" style="background-color: darkolivegreen;  height:50px; width:200px; font-size:16px ; color: azure">
 
     <%-- USUNIĘTE BO NIE DZIAŁAŁ DISTINCT w DAO z tymi parametrami itemLabel="pSize"   itemValue="pSize"--%>
 

@@ -21,6 +21,7 @@
         <th>Kolor</th>
         <th>Opis</th>
         <th>Skład</th>
+        <th>Dostępne 1/0</th>
     </tr>
     <a href="<c:url value="/suits/search"/>">Powrót</a> <br/><br/>  <%--adres do www CZERWONY ALE JEST OK to inteliJ tak pokazuje--%>
     </thead>

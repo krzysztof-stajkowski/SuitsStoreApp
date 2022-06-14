@@ -15,6 +15,7 @@
         <th>Kolor</th>
         <th>Opis</th>
         <th>Skład</th>
+        <th>Dostępne 1/0</th>
     </tr>
     </thead>
     <tbody>

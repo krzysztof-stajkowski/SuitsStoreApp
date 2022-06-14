@@ -23,6 +23,7 @@
         <th>Kolor</th>
         <th>Opis</th>
         <th>Skład</th>
+        <th>Dostepne 1/0</th>
     </tr>
     <a href="<c:url value="/products"/>">Powrót</a> <br/><br/>  <%--adres do www CZERWONY ALE JEST OK to inteliJ tak pokazuje--%>
     </thead>
