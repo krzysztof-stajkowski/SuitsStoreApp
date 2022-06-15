@@ -13,11 +13,6 @@ public class HomeController {
         return "home";
     }
 
-     @GetMapping("/about")
-    @ResponseBody
-    public String about() {
-        return "Here you can find some details"; }
-
     @GetMapping("/suits") // WWW tu trzeba ustawić stronę po starcie aby przeszło do pierwszego widoku
     public String suitsMain() {
         return "suits"; } //JSP
