@@ -53,7 +53,7 @@ public class ProductsController {
 
         suits.setpAvailable(1); // 1 - dostępny na sprzedarz / na starcie jest 1. na zero można zmnienić w oddzielnej akcji
         suitsDao.save(suits);
-        return "prodCrudSuccess"; //strona bazowa Suits z wyborem Crud
+        return "productsCrudSuccess"; //strona bazowa Suits z wyborem Crud
     }
 
     @GetMapping
