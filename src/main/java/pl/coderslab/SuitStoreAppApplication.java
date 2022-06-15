@@ -11,5 +11,4 @@ public class SuitStoreAppApplication {
     public static void main(String[] args) {
         SpringApplication.run(SuitStoreAppApplication.class, args);
     }
-
 }
