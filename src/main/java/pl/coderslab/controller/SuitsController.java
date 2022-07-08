@@ -78,15 +78,9 @@ public class SuitsController {
         oldSuit.setpComposition(suits.getpComposition());
         oldSuit.setpDescription(suits.getpDescription());
 
+
         Category catNameEdit = categoryDao.findById(suits.getCategoryId());
-
-        /**testy*/
-        System.out.println("Nowy wpis id " + catNameEdit.getId());
-        System.out.println("Stary wpis id " + oldSuit.getCategory().getId());
-        System.out.println("Nowy wpis name " + catNameEdit.getName());
-        System.out.println("Stary wpis name " + oldSuit.getCategory().getName());
-
-        //nie moge zmieć relacji kategorii podczas eycji
+        oldSuit.setCategory(catNameEdit); // po usunięciu kawałka kodu w Suits mogę edytować już category
 
         suitsDao.update(oldSuit);
         return "suitCrudSuccess";

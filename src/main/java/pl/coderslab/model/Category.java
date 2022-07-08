@@ -17,12 +17,14 @@ public class Category {
     @NotBlank(message = "Podaj nazwę kategorii") // to na przyszłość jak bedzie crud do tej tabeli
     private String name;
 
+    //Konstruktora w encji - NIE MA - potrzebny jest bezargumentowy który i tak jest Default i nie trzeba go tworzyć
+
+ /*
+ RELACJA OBUSTRONNA - Mentor sugeruje aby unikać takich relazji jak nie trzeba ich mieć
+ Poniższy kod powodował że nie mogłem edytować na bazie Category id w garniturze - teraz Działa
 
     @OneToMany(mappedBy = "category") //nie tworzymy kolejnej tabeli mapującej
     private List<Suits> suits = new ArrayList<>(); //gdy chcę po kategorii pobrać listę produktów
-
-    //Konstruktora w encji - NIE MA - potrzebny jest bezargumentowy który i tak jest Default i nie trzeba go tworzyć
-
 
     public List<Suits> getSuits() {
         return suits;
@@ -31,7 +33,7 @@ public class Category {
     public void setSuits(List<Suits> suits) {
         this.suits = suits;
     }
-
+*/
     public long getId() {
         return id;
     }
