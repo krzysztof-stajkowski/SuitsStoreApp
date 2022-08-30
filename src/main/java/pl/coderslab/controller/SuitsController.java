@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import pl.coderslab.Dao.*;
+import pl.coderslab.repository.*;
 import pl.coderslab.model.Category;
 import pl.coderslab.model.Suits;
 
@@ -17,22 +17,22 @@ import java.util.Collection;
 //@ResponseBody - z tym nie przechodzi do jsp
 public class SuitsController {
 
-    private final SuitsDao suitsDao;
+    private final SuitsRepository suitsRepository;
 
-    private final CategoryDao categoryDao;
+    private final CategoryRepository categoryRepository;
 
-    private final MatchTableDao MatchTableDao;
+    private final MatchTableRepository MatchTableRepository;
 
-    private final ProductListDao productListDao;
+    private final ProductListRepository productListRepository;
 
-    private final ProductsDao productsDao;
+    private final ProductsRepository productsRepository;
 
-    public SuitsController(SuitsDao suitsDao, CategoryDao categoryDao, MatchTableDao matchTableDao, ProductListDao productListDao, ProductsDao productsDao) {
-        this.suitsDao = suitsDao;
-        this.categoryDao = categoryDao;
-        this.MatchTableDao = matchTableDao;
-        this.productListDao = productListDao;
-        this.productsDao = productsDao;
+    public SuitsController(SuitsRepository suitsRepository, CategoryRepository categoryRepository, MatchTableRepository matchTableRepository, ProductListRepository productListRepository, ProductsRepository productsRepository) {
+        this.suitsRepository = suitsRepository;
+        this.categoryRepository = categoryRepository;
+        this.MatchTableRepository = matchTableRepository;
+        this.productListRepository = productListRepository;
+        this.productsRepository = productsRepository;
     }
 
 
@@ -51,14 +51,14 @@ public class SuitsController {
         }
 
         suits.setpAvailable(1); // 1 - dostępny na sprzedarz / na starcie jest 1. na zero można zmnienić w oddzielnej akcji
-        suitsDao.save(suits);
+        suitsRepository.save(suits);
         return "suitCrudSuccess"; //strona bazowa Suits z wyborem Crud
     }
 
     @GetMapping
     @RequestMapping(value = "/edit")
     public String editSuits(Model model) { //trzeba zaimportować klasę Model
-        model.addAttribute("suitsList", suitsDao.ListAllByProductName("Garnitur"));
+        model.addAttribute("suitsList", suitsRepository.ListAllByProductName("Garnitur"));
         model.addAttribute("suits", new Suits()); // klucz do jsp
         return "suitsEdit"; //link do jsp
     }
@@ -70,7 +70,7 @@ public class SuitsController {
             return "suitsEdit"; //do jsp, a formularz zostaje wypełniony i wystarczy skorygowac
         }
 
-        Suits oldSuit = suitsDao.findById(suits.getId());
+        Suits oldSuit = suitsRepository.findById(suits.getId());
         oldSuit.setpAvailable(oldSuit.getpAvailable());
         oldSuit.setpModel(suits.getpModel());
         oldSuit.setpSize(suits.getpSize());
@@ -79,49 +79,49 @@ public class SuitsController {
         oldSuit.setpDescription(suits.getpDescription());
 
 
-        Category catNameEdit = categoryDao.findById(suits.getCategoryId());
+        Category catNameEdit = categoryRepository.findById(suits.getCategoryId());
         oldSuit.setCategory(catNameEdit); // po usunięciu kawałka kodu w Suits mogę edytować już category
 
-        suitsDao.update(oldSuit);
+        suitsRepository.update(oldSuit);
         return "suitCrudSuccess";
     }
 
     //-----------------------------
     @GetMapping("/delete")
     public String delete(Model model) {
-        model.addAttribute("suits", suitsDao.ListAllByProductName("Garnitur")); //tylko garnitury
+        model.addAttribute("suits", suitsRepository.ListAllByProductName("Garnitur")); //tylko garnitury
         return "suitsDel";
     }
 
     @GetMapping("/delete/{id}")  //na podstawie book z zajęć warjee29sh
     public String delete(@PathVariable long id) {
-        Suits suitsDelId = suitsDao.findById(id);
-        suitsDao.delete(suitsDelId);
+        Suits suitsDelId = suitsRepository.findById(id);
+        suitsRepository.delete(suitsDelId);
         return "redirect:/suits/delete";
     }
 
 //--------------
     @ModelAttribute("categoryList") //to musi być aby jsp mogło pobrac dane do selecta
     public Collection<Category> categoryList() {
-        return this.categoryDao.getList(); //pobieram listę z bazy categorii ale w Dao uszczupliłem select tylko do name
+        return this.categoryRepository.getList(); //pobieram listę z bazy categorii ale w Dao uszczupliłem select tylko do name
     }
 
     @ModelAttribute("AtrybutSuits") //mapping do JSP
     public Collection<Suits> findList() {
-        return this.suitsDao.findAllByProductName("Garnitur"); //pobieram listę z bazy głównej towarów które nie są garniturami
+        return this.suitsRepository.findAllByProductName("Garnitur"); //pobieram listę z bazy głównej towarów które nie są garniturami
     }
 
     @GetMapping("/list")
     public String list(Model model) {
         model.addAttribute("suitsList",
-                suitsDao.ListAllByProductName("Garnitur"));
+                suitsRepository.ListAllByProductName("Garnitur"));
         return "suitsList";
     }
 
     @GetMapping("/listbysize")
     public String list2(Model model) { //wykorzystanie dwóch zmiennych z dwóch tabel do filtrowania
         model.addAttribute("suitsListbysize",
-                suitsDao.findAllByProductSize("176/48", "Garnitur"));
+                suitsRepository.findAllByProductSize("176/48", "Garnitur"));
         return "suitsFindModel";
     }
 
@@ -156,7 +156,7 @@ public class SuitsController {
 
     @ModelAttribute("AtrybutSuitsSizes") //mapping do JSP
     public Collection<Suits> findListSizes() {
-        return this.suitsDao.getSizes("Garnitur"); //pobieram listę z bazy głównej z samymi rozmiarami /posortowaną
+        return this.suitsRepository.getSizes("Garnitur"); //pobieram listę z bazy głównej z samymi rozmiarami /posortowaną
             //JAK POBRAĆ UNIKATY TYLKO? - DISTINCT NIE DZIAŁA W TEJ FORMIE
     }
 
@@ -164,7 +164,7 @@ public class SuitsController {
     public String searchSuits( Suits suits,Model model) { //trzeba zaimportować klasę Model
 
         String selectedSize = suits.getpSize();
-        model.addAttribute("SizesList", suitsDao.ListAllSuitsBySize(selectedSize,1));
+        model.addAttribute("SizesList", suitsRepository.ListAllSuitsBySize(selectedSize,1));
 
         return "suitsFindModel"; //strona bazowa Suits z wyborem Crud
     }

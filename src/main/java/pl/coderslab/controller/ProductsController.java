@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import pl.coderslab.Dao.*;
+import pl.coderslab.repository.*;
 import pl.coderslab.model.Category;
 import pl.coderslab.model.Productlist;
 import pl.coderslab.model.Suits;
@@ -18,23 +18,23 @@ import java.util.Collection;
 
 public class ProductsController {
 
-    private final SuitsDao suitsDao;
+    private final SuitsRepository suitsRepository;
 
-    private final CategoryDao categoryDao;
+    private final CategoryRepository categoryRepository;
 
-    private final MatchTableDao MatchTableDao;
+    private final MatchTableRepository MatchTableRepository;
 
-    private final ProductListDao productListDao;
+    private final ProductListRepository productListRepository;
 
-    private final ProductsDao productsDao;
+    private final ProductsRepository productsRepository;
 
 
-    public ProductsController(SuitsDao suitsDao, CategoryDao categoryDao, MatchTableDao matchTableDao, ProductListDao productListDao, ProductsDao productsDao) {
-        this.suitsDao = suitsDao;
-        this.categoryDao = categoryDao;
-        this.MatchTableDao = matchTableDao;
-        this.productListDao = productListDao;
-        this.productsDao = productsDao;
+    public ProductsController(SuitsRepository suitsRepository, CategoryRepository categoryRepository, MatchTableRepository matchTableRepository, ProductListRepository productListRepository, ProductsRepository productsRepository) {
+        this.suitsRepository = suitsRepository;
+        this.categoryRepository = categoryRepository;
+        this.MatchTableRepository = matchTableRepository;
+        this.productListRepository = productListRepository;
+        this.productsRepository = productsRepository;
     }
 
     @GetMapping
@@ -52,14 +52,14 @@ public class ProductsController {
         }
 
         suits.setpAvailable(1); // 1 - dostępny na sprzedarz / na starcie jest 1. na zero można zmnienić w oddzielnej akcji
-        suitsDao.save(suits);
+        suitsRepository.save(suits);
         return "productsCrudSuccess"; //strona bazowa Suits z wyborem Crud
     }
 
     @GetMapping
     @RequestMapping(value = "/edit")
     public String editProd(Model model) { //trzeba zaimportować klasę Model
-        model.addAttribute("productNameList", productsDao.findAllByProductNameExcept("Garnitur")); //atrybut do productListDuplicate.jsp
+        model.addAttribute("productNameList", productsRepository.findAllByProductNameExcept("Garnitur")); //atrybut do productListDuplicate.jsp
         model.addAttribute("suits", new Suits()); // klucz do jsp - musi być klucz PRODUCTS bo inaczej jest błąd bindowania
         return "productsEdit"; //link do jsp
     }
@@ -71,7 +71,7 @@ public class ProductsController {
             return "productsEdit"; //do jsp, a formularz zostaje wypełniony i wystarczy skorygowac
         }
 
-        Suits oldSuit = suitsDao.findById(suits.getId());
+        Suits oldSuit = suitsRepository.findById(suits.getId());
         oldSuit.setpAvailable(oldSuit.getpAvailable());
         oldSuit.setpModel(suits.getpModel());
         oldSuit.setpSize(suits.getpSize());
@@ -79,7 +79,7 @@ public class ProductsController {
         oldSuit.setpComposition(suits.getpComposition());
         oldSuit.setpDescription(suits.getpDescription());
 
-        Category catNameEdit = categoryDao.findById(suits.getCategoryId());
+        Category catNameEdit = categoryRepository.findById(suits.getCategoryId());
 
         /**testy*/
         System.out.println("Nowy wpis id " + catNameEdit.getId());
@@ -89,7 +89,7 @@ public class ProductsController {
 
         //nie moge zmieć relacji kategorii podczas eycji
 
-        suitsDao.update(oldSuit);
+        suitsRepository.update(oldSuit);
         return "productsCrudSuccess";
     }
 
@@ -97,14 +97,14 @@ public class ProductsController {
     //-----------------------------
     @GetMapping("/delete")
     public String delete(Model model) {
-        model.addAttribute("products", productsDao.findAllByProductNameExcept("Garnitur")); //tu musi być FILTR!!!!!!!!!!!!!!!
+        model.addAttribute("products", productsRepository.findAllByProductNameExcept("Garnitur")); //tu musi być FILTR!!!!!!!!!!!!!!!
         return "productsDel";
     }
 
     @GetMapping("/delete/{id}")  //na podstawie book z zajęć warjee29sh
     public String delete(@PathVariable long id) {
-        Suits suitsDelId = productsDao.findById(id);
-        suitsDao.delete(suitsDelId);
+        Suits suitsDelId = productsRepository.findById(id);
+        suitsRepository.delete(suitsDelId);
         return "redirect:/products/delete";
     }
 
@@ -112,28 +112,28 @@ public class ProductsController {
 
     @ModelAttribute("AtrybutCategoryList") //mapping do JSP
     public Collection<Category> categoryList() {
-        return this.categoryDao.getList(); //pobieram listę z bazy categorii
+        return this.categoryRepository.getList(); //pobieram listę z bazy categorii
     }
 
     @ModelAttribute("Atrybut") //mapping do JSP
     public Collection<Productlist> findList() { //Użyte w ProductAdd do select po nazwach
-        return this.productListDao.getListExceptSuits(1); //pobieram listę z bazy głównej towarów które nie są garniturami
+        return this.productListRepository.getListExceptSuits(1); //pobieram listę z bazy głównej towarów które nie są garniturami
     }
 
     @ModelAttribute("AtrybutProductNameList") //mapping do JSP
     public Collection<Productlist> findAllByProductNameExcept() {
-        return this.productsDao.findAllByProductNameExcept("Garnitur"); //pobieram listę z bazy głównej towarów które nie są garniturami
+        return this.productsRepository.findAllByProductNameExcept("Garnitur"); //pobieram listę z bazy głównej towarów które nie są garniturami
     }
 
     @ModelAttribute("AtrybutMarynarkiSpodnie") //mapping do JSP
     public Collection<Productlist> findListByProductNameExcept() {
-        return this.productsDao.findListByProductNameExcept("Garnitur"); //pobieram listę z bazy głównej towarów które nie są garniturami
+        return this.productsRepository.findListByProductNameExcept("Garnitur"); //pobieram listę z bazy głównej towarów które nie są garniturami
     }
 
     @GetMapping("/list")
     public String list(Model model) {
         //model.addAttribute("suitsList", suitsDao.getList()); //100% z listy
-        model.addAttribute("productNameList", productsDao.findAllByProductNameExcept("Garnitur"));
+        model.addAttribute("productNameList", productsRepository.findAllByProductNameExcept("Garnitur"));
         return "productsList";
     }
 

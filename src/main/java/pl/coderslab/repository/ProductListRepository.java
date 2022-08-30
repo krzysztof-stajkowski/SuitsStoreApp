@@ -1,4 +1,4 @@
-package pl.coderslab.Dao;
+package pl.coderslab.repository;
 
 import org.springframework.stereotype.Repository;
 import pl.coderslab.model.Productlist;
@@ -9,7 +9,7 @@ import java.util.List;
 
 @Repository
 @Transactional
-public class ProductListDao { // ta klasa służy do przyszłego Crud tabeli z listą unikatów
+public class ProductListRepository { // ta klasa służy do przyszłego Crud tabeli z listą unikatów
 
     @PersistenceContext
     private EntityManager entityManager;

@@ -1,7 +1,8 @@
-package pl.coderslab.Dao;
+package pl.coderslab.repository;
 
 import org.springframework.stereotype.Repository;
-import pl.coderslab.model.Category;
+import pl.coderslab.model.Matchtable;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -13,39 +14,27 @@ import java.util.List;
 // Oznacza to, że transakcja zacznie się przed wejściem do metody, a zakończy po jej wykonaniu.
 // Adnotację @Transactional - możemy umieścić nad całą klasą - wtedy będzie dotyczyć wszystkich jej metod lub nad pojedynczą metodą.
 
-public class CategoryDao {
+public class MatchTableRepository {
 
     @PersistenceContext
     private EntityManager entityManager; //EntityManager – zarządca encji, udostępnia nam możliwość operowania na naszych encjach.
 
-    /**
-     EntityManager to obiekt, który posiada metody pozwalające w łatwy sposób operować na encjach.
-
-     Podstawowe metody to:
-
-     persist - służy do zapisu
-     find - do pobierania pojedynczego obiektu
-     merge - do aktualizacji obiektu
-     remove - do usuwania obiektu
-     contains - do sprawdzania czy istnieje obiekt
-     */
-
-    public List<Category> getList() {
+    public List<Matchtable> getList() {
         return entityManager.createQuery("select b from Category b").getResultList(); //tu musi być samo b inaczej będzie błąd
     }
 
-    public Category findById(long id) {
-        return entityManager.find(Category.class, id);
+    public Matchtable findById(long id) {
+        return entityManager.find(Matchtable.class, id);
     }
 
-    public void update(Category category) {
-        entityManager.merge(category);
+    public void update(Matchtable matchTable) {
+        entityManager.merge(matchTable);
     }
 
-    public List<Category> findAllByCategoryName(String name) {
+    public List<Matchtable> findAllByMatchName(String name) {
         return entityManager
-                .createQuery("select b from Category b where b.name=:pName")
-                .setParameter("pName", name)
+                .createQuery("select b from Matchtable b where b.mName=:Name")
+                .setParameter("Name", name)
                 .getResultList();
     }
 

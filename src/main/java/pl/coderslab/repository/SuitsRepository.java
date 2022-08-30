@@ -1,4 +1,4 @@
-package pl.coderslab.Dao;
+package pl.coderslab.repository;
 
 import org.springframework.stereotype.Repository;
 import pl.coderslab.model.Suits;
@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 @Transactional
 
-public class SuitsDao {
+public class SuitsRepository {
 
     @PersistenceContext
     private EntityManager entityManager; //EntityManager – zarządca encji, udostępnia nam możliwość operowania na naszych encjach.
