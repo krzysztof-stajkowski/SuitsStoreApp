@@ -17,6 +17,7 @@
 <form:form method="post" modelAttribute="suits"> <%--Klucz z kontrolera CZERWONY ALE JEST OK to inteliJ tak pokazuje--%>
 
     Wybierz id garnituru do edycji<br/>
+    <p style="color:darkred;">(error gdy wybierze się inny numer niż jest na liście - do poprawy)</p> <br/>
     <form:input path="id"/> <br/><br/>
 
     Nowy model<br/>
@@ -36,9 +37,7 @@
     <form:errors cssStyle="margin: 30px; color: crimson; font-size: 13px; font-style: italic"   path="pComposition"/><br/>
     Nowa kategoria<br/>
     <form:select cssStyle="width: 200" path="category.id" items="${categoryList}" itemLabel="name" itemValue="id"/>
-    <br>
-    <small style="color: blue">>--- Podczas edycji nie updatuje mi się kategoria w bazie</small>
-    <br/><br/>
+
     Zatwierdź zmiany <br>
     <input type="submit" value="Save" style="background-color: darkolivegreen;  height:50px; width:200px; font-size:16px ; color: azure"><br/><br/>
     <a href="<c:url value="/suits/edit"/>">Wczytaj stronę jeszcze raz</a> <br/><br/>

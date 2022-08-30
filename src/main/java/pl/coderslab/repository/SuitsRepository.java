@@ -9,7 +9,6 @@ import java.util.List;
 
 @Repository
 @Transactional
-
 public class SuitsRepository {
 
     @PersistenceContext
